@@ -1,0 +1,13 @@
+<form class="box login" method="post" action="" style="height: 400px;">
+         <fieldset class="boxBody" style="border: 0px;">
+	  <label>Usuario</label>
+          <input id="user" name="user" type="text" tabindex="1" placeholder="Usuario" required />
+          <label>Contrase&ntilde;a</label>
+          <input type="password" name="password" id="password" tabindex="2" placeholder="Clave" required />
+          <div style="height: 2px;"><?php echo @$msg;?></div>
+	</fieldset>
+	<footer>
+            <input type="submit" class="btnLogin" value="Login" tabindex="4" />
+	</footer>
+        <input type="hidden" name="flag" id="flag" value="sended" />
+ </form>
