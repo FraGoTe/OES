@@ -1,4 +1,0 @@
-OES
-===
-
-Online Enrollment System
