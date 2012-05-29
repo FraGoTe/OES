@@ -12,6 +12,7 @@ class LoginController extends Zend_Controller_Action {
         $form = new Application_Form_Login(array(
                     'action' => '/login/index',
                     'method' => 'post',
+                    'class'  => 'well'
                 ));
         
          $request = $this->getRequest();

@@ -28,7 +28,7 @@ class Application_Form_Login extends Zend_Form
         $login = $this->addElement('submit', 'login', array(
             'required' => false,
             'ignore'   => true,
-            'label'    => 'Login',
+            'label'    => 'Entrar',
         ));
 
         $this->setDecorators(array(
@@ -40,4 +40,3 @@ class Application_Form_Login extends Zend_Form
     }
 
 }
-
