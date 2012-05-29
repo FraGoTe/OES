@@ -69,8 +69,8 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::IS_EMPTY => "Value is required and can't be empty",
-        self::INVALID  => "Invalid type given. String, integer, float, boolean or array expected",
+        self::IS_EMPTY => "El valor es requerido y no puede vacio",
+        self::INVALID  => "Tipo no válido dado. Cadena, un entero, float, boolean o array esperado",
     );
 
     /**
@@ -140,7 +140,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
 
         if (!is_int($type) || ($type < 0) || ($type > self::ALL)) {
             require_once 'Zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception('Unknown type');
+            throw new Zend_Validate_Exception('Tipo de dato desconocido');
         }
 
         $this->_type = $type;

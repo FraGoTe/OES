@@ -40,9 +40,9 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID   => "Invalid type given. String expected",
-        self::TOO_SHORT => "'%value%' is less than %min% characters long",
-        self::TOO_LONG  => "'%value%' is more than %max% characters long",
+        self::INVALID   => "Tipo no válido dado. Se esperaba una cadena",
+        self::TOO_SHORT => "'%value%' es menor que %min% caracteres de longitud",
+        self::TOO_LONG  => "'%value%' es mayor que %max% caracteres de longitud",
     );
 
     /**
@@ -138,7 +138,7 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
              * @see Zend_Validate_Exception
              */
             require_once 'Zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception("The minimum must be less than or equal to the maximum length, but $min >"
+            throw new Zend_Validate_Exception("El m&iacute;nimo debe ser menor o igual a la longitud máxima, pero $min >"
                                             . " $this->_max");
         }
         $this->_min = max(0, (integer) $min);
@@ -171,7 +171,7 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
              * @see Zend_Validate_Exception
              */
             require_once 'Zend/Validate/Exception.php';
-            throw new Zend_Validate_Exception("The maximum must be greater than or equal to the minimum length, but "
+            throw new Zend_Validate_Exception("El m&aacute;ximo debe ser mayor que o igual a la longitud m&iacute;nima, pero "
                                             . "$max < $this->_min");
         } else {
             $this->_max = (integer) $max;

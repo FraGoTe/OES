@@ -57,9 +57,9 @@ class Zend_Validate_Alpha extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID      => "Invalid type given. String expected",
-        self::NOT_ALPHA    => "'%value%' contains non alphabetic characters",
-        self::STRING_EMPTY => "'%value%' is an empty string"
+        self::INVALID      => "Tipo de dato invalido. String esperado",
+        self::NOT_ALPHA    => "'%value%' contiene caracteres no alfabéticos",
+        self::STRING_EMPTY => "'%value%' es un string vacio"
     );
 
     /**
