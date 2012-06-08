@@ -73,7 +73,7 @@ body
     list-style-image: none;
     list-style-position: outside;
     list-style-type: none;
-    padding-top: 0;
+    padding-top: 3px;
 }
 .horiznav 
 {
