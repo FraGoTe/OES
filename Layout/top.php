@@ -39,6 +39,13 @@
                         <embed width="980" height="200" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" quality="high" src="../Public/images/bannerfier.swf">
                     </object>
                 </div>
+                 <?php
+                session_start();
+                if(@$_SESSION["active"])
+                echo "activa";
+                else
+                header('location: ../index.php');
+                ?>
                 <div id="horiznav" class="horiznav">
                     <ul class="nav nav-pills" style="float:right;">
                         <li class="dropdown">
@@ -54,14 +61,10 @@
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>
+                         <li class="dropdown">
+                             <a href="../Implementation/CloseSession.php"   >Cerrar Sesi&oacute;n </a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="container"><br/><br/>
-                <?php
-                session_start();
-                if(@$_SESSION["active"])
-                echo "activa";
-                else
-                echo "desactiva";
-                ?>
