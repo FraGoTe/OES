@@ -14,6 +14,7 @@
         <script type="text/javascript" src="../Public/javascript/jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="../Public/javascript/bootstrap.min.js"></script>     
         <script type="text/javascript" src="../Public/javascript/pscript.js"></script>      
+        <script type="text/javascript" src="../Public/javascript/jqueryform.js"></script>    
         <script type="text/javascript" src="../Public/javascript/bootstrap-modal.js"></script>  
        <!--   <script type="text/javascript" src="../Public/javascript/i18n/grid.locale-es.js"></script>
          <script type="text/javascript" src="../Public/javascript/jquery.jqGrid.min.js"></script>    
@@ -42,7 +43,8 @@
                  <?php
                 session_start();
                 if(@$_SESSION["active"])
-                echo "activa";
+                    ;
+              //  echo "activa";
                 else
                 header('location: ../index.php');
                 ?>
@@ -62,7 +64,7 @@
                             </ul>
                         </li>
                          <li class="dropdown">
-                             <a href="../Implementation/CloseSession.php"   >Cerrar Sesi&oacute;n </a>
+                             <a href="../Implementation/Login/CloseSession.php">Cerrar Sesi&oacute;n </a>
                         </li>
                     </ul>
                 </div>
