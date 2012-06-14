@@ -9,7 +9,7 @@ function validaLogin()
 		   type: "POST",
 		   dataType: "html",
 		   contentType: "application/x-www-form-urlencoded",
-		   url:'/OES/Implementation/ProcessLogin.php',
+		   url:'/Implementation/Login/ProcessLogin.php',
 		   data:'username='+usuario+'&password='+pwd,
 		   success:llegadaDatosuser,
 		   timeout:4000

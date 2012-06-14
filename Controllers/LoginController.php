@@ -1,6 +1,6 @@
 <?php
 
-include '../Models/Usuario.php';
+include '../../Models/Usuario.php';
 
 class Login{
 
