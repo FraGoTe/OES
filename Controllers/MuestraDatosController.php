@@ -25,7 +25,7 @@ class MuestraDatos {
                         echo "La foto debe ser como m&aacute;ximo de 1 MB";
                 }
                 else
-                    echo "Formato In&aacute;lido..";
+                    echo "Formato Inv&aacute;lido..";
             }
             else
                 echo "Seleccione una imagen..!";
