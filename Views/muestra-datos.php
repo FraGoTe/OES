@@ -65,7 +65,8 @@ include '../Layout/left.php';
         </div>
         <div id="foto" style="float: left;">
             <form id="imageform" method="post" enctype="multipart/form-data" action='../Implementation/Muestra-Datos/UploadImage.php'>
-                Upload image <input type="file" style="" name="photoimg" id="photoimg" />
+                <div id="upload" class="btn btn-primary">Upload image</div> 
+                <input type="file" style="display:block;" name="photoimg" id="photoimg" />
             </form>       
             <div id='preview'>
             </div>
@@ -78,12 +79,15 @@ include '../Layout/left.php';
         $('#photoimg').live('change', function()
         {
             $("#preview").html('');
-            $("#preview").html('<img src="../Public/images/loader.gif" alt="Uploading...."/>');
+            $("#preview").html('<img src="../Public/images/loader.gif" width="130" height="150" alt="Uploading...."/>');
             $("#imageform").ajaxForm(
             {
                 target: '#preview'
             }).submit();
         });
+    });
+    $('#upload').click(function(){
+       $('#photoimg').click();
     });
 </script>
 <?php
