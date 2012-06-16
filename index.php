@@ -1,3 +1,4 @@
 <?php
-header('location: /Views/login.php')
+//Agregando el ; prrrrrra!
+header('location: /Views/login.php');
 ?>
