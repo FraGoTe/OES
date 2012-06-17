@@ -18,7 +18,7 @@ class Usuario {
         $this->DbConnect = $ObjDbConnect;
     }
     
-    function selectUser($login,$pass){
+    public function selectUser($login,$pass){
                 $login = mysql_real_escape_string($login);
 		$pass = md5(mysql_real_escape_string($pass));
 		$sql="SELECT * FROM usuario where usu_id = '$login' and usu_passw = '$pass';";
@@ -45,6 +45,12 @@ class Usuario {
                     return "notfound";
                 }
 	}
+      public function getuserdata($usu_id){
+          $sql = "SELECT * FROM ALUMNO WHERE USU_ID='$usu_id'";
+          $qReso = $this->DbConnect->query($sql);
+          $data = $this->DbConnect->fetchtoarray($qReso); 
+          return $data;
+      }
 }
 
 ?>
