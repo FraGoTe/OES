@@ -1,11 +1,13 @@
 <?php
 
+include "{$_SERVER['DOCUMENT_ROOT']}./Models/Usuario.php";
+
 class MuestraDatos {
 
     public function UploadImage($_POST,$_FILES,$_SERVER) {
         session_start();
         $path = "../../Public/images/Fotos/";
-        $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg");
+        $valid_formats = array("jpg");
         if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
             $name = $_FILES['photoimg']['name'];
             $size = $_FILES['photoimg']['size'];
@@ -32,7 +34,12 @@ class MuestraDatos {
             exit;
         }
     }
-
+    
+   public function getuserdata($usu_id){
+       $objusuario = new Usuario();
+       $data = $objusuario->getuserdata($usu_id);
+       return $data;
+   }
 }
 
 ?>
