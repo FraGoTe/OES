@@ -1,6 +1,6 @@
 <?php
 
-include 'DbConnect.php';
+require_once 'DbConnect.php';
 
 /**
  * Description of Usuario
@@ -31,12 +31,14 @@ class Usuario {
                  	$usucod = $array[0];
 			$estado = $array[2];
                         $rol = $array[3];
+                        $alucod = $array[4];
 			$i++;
 		}
                 if($i > 0)
 		{
 			session_start();
 			$_SESSION["usucod"] = $usucod;
+                        $_SESSION["alu_cod"] = $alucod;
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
                         $_SESSION["active"] = true;
@@ -46,7 +48,7 @@ class Usuario {
                 }
 	}
       public function getuserdata($usu_id){
-          $sql = "SELECT * FROM ALUMNO WHERE USU_ID='$usu_id'";
+          $sql = "SELECT * FROM ALUMNO WHERE ALU_COD='$usu_id'";
           $qReso = $this->DbConnect->query($sql);
           $data = $this->DbConnect->fetchtoarray($qReso); 
           return $data;

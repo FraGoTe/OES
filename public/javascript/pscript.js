@@ -21,7 +21,7 @@ function llegadaDatosuser(datos)
 {       
        if(datos=='found')
        {
-           window.location = '../Views/muestra-datos.php';
+           window.location = '../Views/index.php';
        }else{
 	$("#username").attr("value",'');	
 	$("#password").attr("value",'');

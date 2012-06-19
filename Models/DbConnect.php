@@ -1,5 +1,4 @@
 <?php
-
 class DbConnect {
 
     var $Servidor;
@@ -58,7 +57,26 @@ class DbConnect {
         }
         return $array;
     }
+    
+    
+    function fetchAlltoArray($sql){
+         if ($sql == "") {
+            $this->Error = "Consulta no especificada";
+            return 0;
+        }
 
+        $this->Consulta_ID = mysql_query($sql, $this->Conexion_ID) or die(mysql_error());
+
+        if (!$this->Consulta_ID) {
+            $this->Errno = mysql_errno();
+            $this->Error = mysql_error();
+        }
+         while ($row = mysql_fetch_assoc($this->Consulta_ID)) {
+            $array[] = $row;
+        }
+        return @$array;
+    }
+        
 }
 
 ?>
