@@ -68,35 +68,49 @@ include '../Implementation/Selecciona-Cursos/ObtenerPrematricula.php';
         <div class="control-group">
             <label class="control-label" for="input01">Escuela :</label>
             <div class="controls">
-                <input type="text" disabled="disabled" value="<?php echo $prematri[0][0]['alu_esc']; ?>" class="input-xlarge" name="alu_esc" id="alu_esc" />
+                <input type="text" disabled="disabled" value="<?php 
+                            switch($prematri[0][0]['alu_esc']):
+                            case 'IF':
+                                echo 'Ingenier&iacute;a Inform&aacute;tica';
+                                break;
+                            case 'IE':
+                                echo 'Ingenier&iacute;a Electronica';
+                                break;
+                            case 'IT':
+                                echo 'Ingenier&iacute;a de Telecomunicaciones';
+                                break;
+                            case 'IM':
+                                echo 'Ingenier&iacute;a Mecatronica';
+                                break;
+                            endswitch; ?>" class="input-xlarge" name="alu_esc" id="alu_esc" />
             </div>
         </div>
              </div>
           <div id="foto" style="float: left; width: 150px;">
              <div id='preview'>
                  <?php
-                 //echo "../../Public/images/Fotos/{$_SESSION['usucod']}.jpg";
                 if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/Public/images/Fotos/{$_SESSION['alu_cod']}.jpg"))
                  echo "<img width='110' height='130' src='../../Public/images/Fotos/{$_SESSION['alu_cod']}.jpg' class='preview'>";
                  ?>
             </div>
         </div>
     </fieldset>
-</div>
+    
  <table id="list4"></table>
+</div>
 <script>
     $("#list4").jqGrid({ 
         datatype: "local", 
-        height: 250, 
+        height: 280, 
         colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos','Vez'], 
         colModel:[ 
-            {name:'per',index:'per', width:60, sorttype:"int"}, 
-            {name:'cod',index:'cod', width:90, sorttype:"date"}, 
-            {name:'tur',index:'tur', width:100}, 
-            {name:'sec',index:'sec', width:80, align:"right",sorttype:"float"}, 
-            {name:'asig',index:'asig', width:80, align:"right",sorttype:"float"}, 
-            {name:'cre',index:'cre', width:80,align:"right",sorttype:"float"}, 
-            {name:'vez',index:'vez', width:150} ], 
+            {name:'per',index:'per', width:45}, 
+            {name:'cod',index:'cod', width:45, align:"center"}, 
+            {name:'tur',index:'tur', width:42, align:"center"}, 
+            {name:'sec',index:'sec', width:42, align:"center"}, 
+            {name:'asig',index:'asig', width:390, align:"left"}, 
+            {name:'cre',index:'cre', width:48,align:"center",sorttype:"int"}, 
+            {name:'vez',index:'vez', width:43, align:"center"} ], 
         caption: "Cursos Matriculados" }); 
     
     var mydata = [ 
