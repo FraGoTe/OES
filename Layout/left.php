@@ -44,7 +44,7 @@
         else{
             ?>
             <li id="matri" >
-            <a  onclick="change('admin_estado_matricula.php','matri')" >
+            <a  onclick="change('admin-estado-matricula.php','matri')" >
                 <i class="icon-white icon-cog"></i>
                 Matricula Online
             </a>

@@ -42,13 +42,18 @@ class Usuario {
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
                         $_SESSION["active"] = true;
-			return "found";
+                        
+                        if($_SESSION["rol"] == "alum")
+                            return "alum";
+                        else 
+                            return "admin";
 		}else{
                     return "notfound";
                 }
 	}
-      public function getuserdata($usu_id){
-          $sql = "SELECT * FROM ALUMNO WHERE ALU_COD='$usu_id'";
+        
+      public function getuserdata($alu_esc){
+          $sql = "SELECT * FROM ALUMNO WHERE ALU_COD='$alu_esc'";
           $qReso = $this->DbConnect->query($sql);
           $data = $this->DbConnect->fetchtoarray($qReso); 
           return $data;

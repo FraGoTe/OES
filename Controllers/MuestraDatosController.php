@@ -2,6 +2,7 @@
 
 include_once "{$_SERVER['DOCUMENT_ROOT']}./Models/Usuario.php";
 
+
 class MuestraDatos {
 
     public function UploadImage($_POST,$_FILES,$_SERVER) {
@@ -39,6 +40,8 @@ class MuestraDatos {
        $objusuario = new Usuario();
        $data = $objusuario->getuserdata($usu_id);
        return $data;
+   
+
    }
 }
 
