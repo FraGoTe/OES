@@ -25,7 +25,7 @@ class Alumno {
                         FROM ALUMNO AL 
                        LEFT JOIN MATRICULA MAT 
                        ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
-                       WHERE  AL.ALU_ESC='$escuela' 
+                       WHERE  AL.ALU_ESC='$escuela' AND MAT.MAT_ESTADO <> 'NULL' 
                         ORDER BY $sidx $sord LIMIT $start , $limit
                         ";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
@@ -37,7 +37,7 @@ class Alumno {
                         FROM ALUMNO AL 
                        LEFT JOIN MATRICULA MAT 
                        ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
-                       WHERE  AL.ALU_ESC='$escuela' 
+                       WHERE  AL.ALU_ESC='$escuela' AND MAT.MAT_ESTADO <> 'NULL' 
                         ";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
@@ -57,6 +57,15 @@ class Alumno {
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }
+    public function getAllCursos($alucod){
+            $SQL1 = "SELECT *FROM CURSO CUR INNER JOIN CURSO_ALUMNO CURALU ON CUR.CUR_COD=CURALU.CUR_COD
+INNER JOIN ALUMNO AL ON AL.ALU_COD = CURALU.ALU_COD AND AL.ALU_ESC = CUR.ESC_COD         
+INNER JOIN MATRICULA MA ON MA.ALU_COD = CURALU.ALU_COD
+WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012'";
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
     
     public function getAluData($ALU_COD){
         $SQL = "SELECT * FROM ALUMNO WHERE ALU_COD='$ALU_COD'";

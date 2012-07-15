@@ -42,11 +42,7 @@ class Usuario {
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
                         $_SESSION["active"] = true;
-                        
-                        if($_SESSION["rol"] == "alum")
-                            return "alum";
-                        else 
-                            return "admin";
+                           return "found";
 		}else{
                     return "notfound";
                 }
