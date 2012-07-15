@@ -10,7 +10,7 @@ class DbConnect {
     var $Errno = 0;
     var $Error = "";
 
-    function DbConnect($db="matricula", $host="localhost", $user="root", $pass="") {
+    function DbConnect($db="matricula", $host="localhost", $user="root", $pass="123456") {
         $this->Servidor = $host;
         $this->DataBase = $db;
         $this->Usuario = $user;
