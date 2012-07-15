@@ -30,12 +30,29 @@
         </a>
         </li>
         <li class="nav-header">Matricula 2013</li>
+        <?php
+        if($_SESSION["rol"] == "alum") {
+        ?>
         <li id="matri" >
             <a  onclick="change('operacion-banco.php','matri')" >
                 <i class="icon-white icon-cog"></i>
                 Matricula Online
             </a>
         </li>
+        <?php
+        }
+        else{
+            ?>
+            <li id="matri" >
+            <a  onclick="change('admin_estado_matricula.php','matri')" >
+                <i class="icon-white icon-cog"></i>
+                Matricula Online
+            </a>
+            </li>
+        <?php
+        }
+        ?>
+        
         <li class="nav-header">Descargas</li>
          <li id="reg">
              <a onclick="change('reg.php','reg')">
