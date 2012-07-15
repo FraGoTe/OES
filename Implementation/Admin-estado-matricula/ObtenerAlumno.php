@@ -34,7 +34,7 @@ foreach($alumnos as $alumno){
     $responce->rows[$i]['id']=$alumno['ALU_COD'];
     $responce->rows[$i]['cell']=array($alumno['ALU_COD'],
                         $alumno['ALU_NOM_COMPLETO'],
-                        (@$alumno['mat_estado']?'Matriculado':'No Matriculado'));
+                        (@$alumno['mat_estado']?'No Matriculado':'Matriculado'));
     $i++;
 
 }    
