@@ -7,12 +7,25 @@ class AdminEstadoMatriculaController {
     function __construct() {
         
     }
-    
-       public function getuserdata1($variable){
+     public function getalldata($variable){
            $objalumno = new Alumno();
-           $data1 = $objalumno->getAluData1($variable);
+           $data1 = $objalumno->getAllAluxEscuela($variable);
            return $data1;
         }
+        
+         
+       public function getuserdata($variable,$start,$limit,$sidx,$sord){
+           $objalumno = new Alumno();
+           $data1 = $objalumno->getAluxEscuela($variable,$start,$limit,$sidx,$sord);
+           return $data1;
+        }
+        
+       public function getcursos($variable){
+           $objalumno = new Alumno();
+           $data1 = $objalumno->getAllCursos($variable);
+           return $data1;
+        }
+        
         public function getuserestado($variable){
            $objalumno = new Alumno();
            $data2 = $objalumno->getestado($variable);

@@ -20,7 +20,6 @@ class DbConnect {
     function connect() {
 
         $this->Conexion_ID = mysql_connect($this->Servidor, $this->Usuario, $this->Passw) or die(mysql_error());
-
         if (!$this->Conexion_ID) {
             $this->Error = 'Conexion Fallida';
             return 0;
@@ -64,9 +63,9 @@ class DbConnect {
             $this->Error = "Consulta no especificada";
             return 0;
         }
-
+    
         $this->Consulta_ID = mysql_query($sql, $this->Conexion_ID) or die(mysql_error());
-
+    
         if (!$this->Consulta_ID) {
             $this->Errno = mysql_errno();
             $this->Error = mysql_error();

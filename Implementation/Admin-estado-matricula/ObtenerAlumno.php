@@ -2,28 +2,42 @@
 
 include "{$_SERVER['DOCUMENT_ROOT']}./Controllers/AdminEstadoMatriculaController.php";
 //session_start();
-$objMuestraData1 = new AdminEstadoMatriculaController();
 $objMuestraEstado = new AdminEstadoMatriculaController();
 
-@$alumnos = $objMuestraData1->getuserdata1($_REQUEST['seleccionar']);//cambiar
-//$alumnos = $objMuestraData1->getuserdata($_SESSION['alu_cod']);
-//return $alumnos;
-                $i=0;
-                $alum = "";
-                $numRows = count($alumnos);
-                //echo $alumnos[1]['alu_nom_completo'];
-                while($numRows>$i)//$numRows>$i
-		{
-                    $estado = $objMuestraEstado->getuserestado($alumnos[$i]['alu_cod']);
-                    if($numRows==$i-1)
-                    {$alum .= "{cod:'".$alumnos[$i]['alu_cod']."',nombre:'".$alumnos[$i]['alu_nom_completo']."',estado:'".$estado."'}";
-                     $i++;}
-                     else{
-                     $alum .= "{cod:'".$alumnos[$i]['alu_cod']."',nombre:'".$alumnos[$i]['alu_nom_completo']."',estado:'".$estado."'},";
-                     $i++;}
-		}
-                ?>
+$page = $_REQUEST['page']; 
+$limit = $_REQUEST['rows']; 
+$sidx = $_REQUEST['sidx']; 
+$sord = $_REQUEST['sord']; 
 
-<script>
+@$alum = $objMuestraEstado->getalldata($_REQUEST['seleccionar']);
 
-</script>
+$i = 0;
+$limit = 50;
+$numRows = count($alum);
+
+if( $numRows >0 ) {
+	$total_pages = ceil($numRows/$limit);
+} else {
+	$total_pages = 0;
+}
+if ($page > $total_pages) $page=$total_pages;
+$start = $limit*$page - $limit; 
+
+@$alumnos = $objMuestraEstado->getuserdata($_REQUEST['seleccionar'],$start,$limit,$sidx,$sord); 
+
+$responce->page = $page;
+$responce->total = $total_pages;
+$responce->records = $numRows;
+$i=0;
+
+foreach($alumnos as $alumno){
+    $responce->rows[$i]['id']=$alumno['ALU_COD'];
+    $responce->rows[$i]['cell']=array($alumno['ALU_COD'],
+                        $alumno['ALU_NOM_COMPLETO'],
+                        (@$alumno['mat_estado']?'Matriculado':'No Matriculado'));
+    $i++;
+
+}    
+echo json_encode($responce);
+
+?>
