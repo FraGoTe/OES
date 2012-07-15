@@ -97,13 +97,13 @@
             </a>
         </li>
         <li id="ptel">
-            <a onclick="change('mtel.php','mtel')">
+            <a onclick="change('mtel.php','ptel')">
                 <i class="icon-white icon-book"></i>
                 Plan Curricular IT
             </a>
         </li>
         <li id="pmec">
-            <a onclick="change('mmec.php','mmec')">
+            <a onclick="change('mmec.php','pmec')">
                 <i class="icon-white icon-book"></i>
                 Plan Curricular IM
             </a>

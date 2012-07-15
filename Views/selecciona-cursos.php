@@ -50,7 +50,7 @@ function continuar(){
     $('input[type=checkbox]').each(function(){
         data+=$(this).val();
     });
-   
+    
     $.ajax({
         url: 'imprimir-boleta.php',
         dataType: 'html',

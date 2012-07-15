@@ -81,7 +81,21 @@ include '../Implementation/Muestra-Datos/ObtenerData.php';
         <div class="control-group">
             <label class="control-label" for="input01">Escuela :</label>
             <div class="controls">
-                <input type="text" disabled="disabled" value="<?php echo $aludata['alu_esc']; ?>" class="input-xlarge" name="alu_esc" id="alu_esc" />
+                <input type="text" disabled="disabled" value="<?php 
+                            switch($aludata['alu_esc']):
+                            case 'IF':
+                                echo 'Ingenier&iacute;a Inform&aacute;tica';
+                                break;
+                            case 'IE':
+                                echo 'Ingenier&iacute;a Electronica';
+                                break;
+                            case 'IT':
+                                echo 'Ingenier&iacute;a de Telecomunicaciones';
+                                break;
+                            case 'IM':
+                                echo 'Ingenier&iacute;a Mecatronica';
+                                break;
+                            endswitch; ?>" class="input-xlarge" name="alu_esc" id="alu_esc" />
             </div>
         </div>
              </div>
