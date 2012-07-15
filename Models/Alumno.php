@@ -19,15 +19,30 @@ class Alumno {
     }
     
         
-    public function getAluData1($escuela){//$alu_esc
-        IF ($escuela== 'II')
-            $SQL1 = "SELECT * FROM ALUMNO";//
-        ELSE
-            $SQL1 = "SELECT * FROM ALUMNO WHERE alu_esc='$escuela'";//SOLO INFORMATICA
-        //$SQL = "SELECT * FROM ALUMNO WHERE alu_esc='$alu_esc'";//SOLO INFORMATICA
+    public function getAluxEscuela($escuela,$start,$limit,$sidx,$sord){//$alu_esc
+        if($start<0) $start=1;
+            $SQL1 = "SELECT AL.ALU_COD, MAT.MAT_ESTADO,AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL 
+                       LEFT JOIN MATRICULA MAT 
+                       ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
+                       WHERE  AL.ALU_ESC='$escuela' 
+                        ORDER BY $sidx $sord LIMIT $start , $limit
+                        ";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }
+    
+    public function getAllAluxEscuela($escuela){//$alu_esc
+            $SQL1 = "SELECT AL.ALU_COD, MAT.MAT_ESTADO,AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL 
+                       LEFT JOIN MATRICULA MAT 
+                       ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
+                       WHERE  AL.ALU_ESC='$escuela' 
+                        ";
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
     
     public function getAluData($ALU_COD){
         $SQL = "SELECT * FROM ALUMNO WHERE ALU_COD='$ALU_COD'";

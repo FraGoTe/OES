@@ -13,6 +13,7 @@
         <script type="text/javascript" src="../Public/javascript/jquery-ui-1.8.12.custom.min.js"></script>  
         <script type="text/javascript" src="../Public/javascript/jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="../Public/javascript/bootstrap.min.js"></script>     
+        <script type="text/javascript" src="../Public/javascript/script.js"></script>      
         <script type="text/javascript" src="../Public/javascript/pscript.js"></script>      
         <script type="text/javascript" src="../Public/javascript/jqueryform.js"></script>    
         <script type="text/javascript" src="../Public/javascript/bootstrap-modal.js"></script>  

@@ -31,28 +31,3 @@ function llegadaDatosuser(datos)
        }
        
 }
-
-function changeSelect(valor) 
-{ 
-    $.ajax({
-		   async:true,
-		   type: "POST",
-		   dataType: "html",
-		   contentType: "application/x-www-form-urlencoded",
-		   url:'/Implementation/Admin_estado_matricula/ObtenerAlumno.php',
-		   data:'seleccionar='+valor,
-                   beforeSend:antesdenvio,
-		   success:llegadaDatosalum,
-		   timeout:4000
-		 });
-}
-
-function llegadaDatosalum(datos)
-{       
-	$("#grilla").html(datos);	
-}
-
-function antesdenvio()
-{       
-	$("#grilla").html('CARGANDO');	
-}
