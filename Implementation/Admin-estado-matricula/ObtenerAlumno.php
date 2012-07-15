@@ -30,13 +30,15 @@ $responce->total = $total_pages;
 $responce->records = $numRows;
 $i=0;
 
+if($alumnos)
+{
 foreach($alumnos as $alumno){
     $responce->rows[$i]['id']=$alumno['ALU_COD'];
     $responce->rows[$i]['cell']=array($alumno['ALU_COD'],
                         $alumno['ALU_NOM_COMPLETO'],
                         (@$alumno['mat_estado']?'No Matriculado':'Matriculado'));
     $i++;
-
+}
 }    
 echo json_encode($responce);
 

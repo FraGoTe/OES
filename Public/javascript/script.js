@@ -15,3 +15,7 @@ function fechaLargaHoy(){
     $('#fecha').html(fecha);
 }
 
+function changeSelect(id){
+    $('#list10').setGridParam({url:'/Implementation/Admin-estado-matricula/ObtenerAlumno.php?seleccionar='+id});
+    $('#list10').trigger("reloadGrid");  
+}

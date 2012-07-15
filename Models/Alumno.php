@@ -44,10 +44,10 @@ class Alumno {
     }
     
     public function getAllCursos($alucod){
-            $SQL1 = "SELECT CUR.cur_ciclo, CUR.cur_cod, CUR.cur_sem, CUR.cur_tipo , CUR.cur_nom, CUR.cur_cred, CUR.esc_cod FROM CURSO CUR
-                INNER JOIN ALUMNO AL ON AL.ALU_ESC = CUR.ESC_COD
-                WHERE AL.ALU_COD='$alucod' AND CUR.CUR_CICLO IN ('I','II')
-                ORDER BY CUR.CUR_CICLO, CUR_NOM";
+            $SQL1 = "SELECT *FROM CURSO CUR INNER JOIN CURSO_ALUMNO CURALU ON CUR.CUR_COD=CURALU.CUR_COD
+INNER JOIN ALUMNO AL ON AL.ALU_COD = CURALU.ALU_COD AND AL.ALU_ESC = CUR.ESC_COD         
+INNER JOIN MATRICULA MA ON MA.ALU_COD = CURALU.ALU_COD
+WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012'";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }

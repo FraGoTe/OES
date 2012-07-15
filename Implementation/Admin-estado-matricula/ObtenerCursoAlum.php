@@ -30,13 +30,13 @@ $i=0;
 
 foreach($cur as $curso){
     $responce2->rows[$i]['id']=$curso['cur_cod'];
-    $responce2->rows[$i]['cell']=array($curso['cur_ciclo'],
+    $responce2->rows[$i]['cell']=array($curso['cua_per'],
                         $curso['cur_cod'],
-                        $curso['cur_sem'],
-                        $curso['cur_tipo'],
+                        $curso['cua_turn'],
+                        $curso['cua_sec'],
                         $curso['cur_nom'],
                         $curso['cur_cred'],
-                        $curso['esc_cod']);
+                        $curso['cua_vez']);
     
     /*$responce2->rows[$i]['cell']=array($curso['cur_ciclo'],
                         $curso['cur_cod'],
