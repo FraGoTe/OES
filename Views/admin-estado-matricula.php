@@ -23,6 +23,13 @@
 <table id="list10"></table>
 <div id="pager10"></div>
 </div>
+<br></br>
+<div align="center">
+<table id="list10_d"></table>
+<div id="pager10"></div>
+</div>
+<!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
+
 <script>
 jQuery("#list10").jqGrid({ 
     url:'/Implementation/Admin-estado-matricula/ObtenerAlumno.php?seleccionar=IF', 
@@ -42,45 +49,52 @@ jQuery("#list10").jqGrid({
     caption: "Alumnos por Escuela", 
     onSelectRow: function(ids) 
                  { 
+      
                     if(ids == null) 
                     { 
+                        nomcompleto= jQuery("#list10").jqGrid('getRowData',ids);
                         ids=0; 
+                        
                         if(jQuery("#list10_d").jqGrid('getGridParam','records') >0 ) 
                         { 
                             jQuery("#list10_d").jqGrid('setGridParam',
                             {
-                                url:"subgrid.php?q=1&id="+ids,page:1}); 
-                                jQuery("#list10_d").jqGrid('setCaption',"Invoice Detail: "+ids) .trigger('reloadGrid'); 
+                                url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum='+ids,page:1}); 
+                                jQuery("#list10_d").jqGrid('setCaption',"Alumno: "+nomcompleto.ALU_NOM_COMPLETO) .trigger('reloadGrid'); 
                         } 
                     } 
                     else 
                     { 
+                        nomcompleto= jQuery("#list10").jqGrid('getRowData',ids);
                         jQuery("#list10_d").jqGrid('setGridParam',
                         {
-                            url:"subgrid.php?q=1&id="+ids,page:1}); 
-                            jQuery("#list10_d").jqGrid('setCaption',"Invoice Detail: "+ids) .trigger('reloadGrid'); 
+                            url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum='+ids,page:1}); 
+                            jQuery("#list10_d").jqGrid('setCaption',"Alumno: "+nomcompleto.ALU_NOM_COMPLETO) .trigger('reloadGrid'); 
                     } 
                  } });
 jQuery("#list10").jqGrid('navGrid','#pager10',{add:false,edit:false,del:false}); 
 jQuery("#list10_d").jqGrid({ 
-    height: 100, 
-    url:'subgrid.php?q=1&id=0', 
+    height: 300, 
+    //url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2007236935', 
     datatype: "json", 
-    colNames:['No','Item', 'Qty', 'Unit','Line Total'], 
-    colModel:[ {name:'num',index:'num', width:55}, 
-               {name:'item',index:'item', width:180}, 
-               {name:'qty',index:'qty', width:80, align:"right"}, 
-               {name:'unit',index:'unit', width:80, align:"right"}, 
-               {name:'linetotal',index:'linetotal', width:80,align:"right", sortable:false, search:false} ], 
-    rowNum:5, 
-    rowList:[5,10,20], 
+    colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos','Vez'], 
+    colModel:[ {name:'cur_ciclo',index:'cur_ciclo', width:55}, 
+               {name:'cur_cod',index:'cur_cod', width:180}, 
+               {name:'cur_sem',index:'cur_sem', width:80, align:"right"}, 
+               {name:'cur_tipo',index:'cur_tipo', width:80, align:"right"}, 
+               {name:'cur_nom',index:'cur_nom', width:80, align:"right"}, 
+               {name:'cur_cred',index:'cur_cred', width:80, align:"right"}, 
+               {name:'esc_cod',index:'esc_cod', width:80,align:"right", sortable:false, search:false} ], 
+    rowNum:10, 
+    //rowList:[5,10,20], 
     pager: '#pager10_d', 
-    sortname: 'item', 
+    sortname: 'cur_cod', 
     viewrecords: true, 
     sortorder: "asc", 
     multiselect: true, 
-    caption:"Invoice Detail" }).navGrid('#pager10_d',{add:false,edit:false,del:false}); 
+    caption:"Alumno" }).navGrid('#pager10_d',{add:false,edit:false,del:false}); 
 jQuery("#ms1").click( function() 
 { 
-    var s; s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow'); alert(s); });
+    var s; 
+    s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow'); alert(s); });
 </script>

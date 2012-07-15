@@ -25,7 +25,7 @@ class Alumno {
                         FROM ALUMNO AL 
                        LEFT JOIN MATRICULA MAT 
                        ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
-                       WHERE  AL.ALU_ESC='$escuela' 
+                       WHERE  AL.ALU_ESC='$escuela' AND MAT.MAT_ESTADO <> 'NULL' 
                         ORDER BY $sidx $sord LIMIT $start , $limit
                         ";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
@@ -37,8 +37,17 @@ class Alumno {
                         FROM ALUMNO AL 
                        LEFT JOIN MATRICULA MAT 
                        ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
-                       WHERE  AL.ALU_ESC='$escuela' 
+                       WHERE  AL.ALU_ESC='$escuela' AND MAT.MAT_ESTADO <> 'NULL' 
                         ";
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
+    public function getAllCursos($alucod){
+            $SQL1 = "SELECT CUR.cur_ciclo, CUR.cur_cod, CUR.cur_sem, CUR.cur_tipo , CUR.cur_nom, CUR.cur_cred, CUR.esc_cod FROM CURSO CUR
+                INNER JOIN ALUMNO AL ON AL.ALU_ESC = CUR.ESC_COD
+                WHERE AL.ALU_COD='$alucod' AND CUR.CUR_CICLO IN ('I','II')
+                ORDER BY CUR.CUR_CICLO, CUR_NOM";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }
