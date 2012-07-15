@@ -13,12 +13,12 @@
         <script type="text/javascript" src="../Public/javascript/jquery-ui-1.8.12.custom.min.js"></script>  
         <script type="text/javascript" src="../Public/javascript/jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="../Public/javascript/bootstrap.min.js"></script>     
+        <script type="text/javascript" src="../Public/javascript/script.js"></script>      
         <script type="text/javascript" src="../Public/javascript/pscript.js"></script>      
         <script type="text/javascript" src="../Public/javascript/jqueryform.js"></script>    
         <script type="text/javascript" src="../Public/javascript/bootstrap-modal.js"></script>  
-       <!--   <script type="text/javascript" src="../Public/javascript/i18n/grid.locale-es.js"></script>
+         <script type="text/javascript" src="../Public/javascript/i18n/grid.locale-es.js"></script>
          <script type="text/javascript" src="../Public/javascript/jquery.jqGrid.min.js"></script>    
-        -->
     </head>
     <body> 
         <div id="wrapper">
@@ -50,19 +50,6 @@
                 ?>
                 <div id="horiznav" class="horiznav">
                     <ul class="nav nav-pills" style="float:right;">
-                        <li class="dropdown">
-                            <a href="#" >Home<b class="caret"></b></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Login <b class="caret"></b></a>
-                            <ul class="dropdown-menu" id="menu3">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
                          <li class="dropdown">
                              <a href="../Implementation/Login/CloseSession.php">Cerrar Sesi&oacute;n </a>
                         </li>

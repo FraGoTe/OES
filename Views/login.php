@@ -60,7 +60,7 @@
             <div class="container"><br/><br/>
                 <form  class="form-horizontal" onsubmit="return false;" style="width: 500px; margin-right: auto; margin-left: auto;">
                     <fieldset>
-                        <legend>Login</legend>
+                        <legend align="center">Bienvenidos al</br>Sistema de Matrícula Online</legend>
                         <div style="text-align: center;">
                             <div class="control-group" style="width: 300px;">
                                 <label class="control-label" for="username">Usuario :</label>
@@ -90,7 +90,7 @@
                         <p>Usuario y clave no encontrados</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="#" data-dismiss="modal" class="btn">Close</a>
+                        <a href="#" data-dismiss="modal" class="btn">Cerrar</a>
                     </div>
                 </div>
             </div>
