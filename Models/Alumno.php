@@ -43,6 +43,20 @@ class Alumno {
         return  $qResp1;
     }
     
+    public function getAllAluFiltro($arra,$escuela){//$alu_esc
+            $SQL1 = "SELECT AL.ALU_COD, MAT.MAT_ESTADO,AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL 
+                       LEFT JOIN MATRICULA MAT 
+                       ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
+                       WHERE  AL.ALU_ESC='{$escuela}'
+                        ";
+                       foreach($arra as $key=>$val)
+                       {
+                           $SQL1.= "AND $key like '%$val%'";
+                       }
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
     
     public function getAluData($ALU_COD){
         $SQL = "SELECT * FROM ALUMNO WHERE ALU_COD='$ALU_COD'";
