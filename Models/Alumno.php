@@ -48,7 +48,7 @@ class Alumno {
                         FROM ALUMNO AL 
                        LEFT JOIN MATRICULA MAT 
                        ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
-                       WHERE  AL.ALU_ESC='{$escuela}'
+                       WHERE  AL.ALU_ESC='{$escuela}' AND MAT.MAT_ESTADO <> 'NULL'
                         ";
                        foreach($arra as $key=>$val)
                        {
