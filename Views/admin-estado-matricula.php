@@ -22,11 +22,11 @@
 <div align="center"></div>
 
 <br />
-<table id="list10"></table>
+<table id="list10" ></table>
 <div id="pager10"></div>
 </div>
 <br></br>
-<div align="center">
+<div>
 <table id="list10_d"></table>
 <div id="pager10"></div>
 </div>
@@ -41,6 +41,7 @@ jQuery("#list10").jqGrid({
                {name:'MAT_ESTADO',index:'MAT_ESTADO', width:150,search:true}
              ],
     rowNum:50, 
+    width: 650,
    /* rowList:[10,20,30], */
     pager: '#pager10', 
     sortname: 'ALU_NOM_COMPLETO', 
@@ -93,7 +94,8 @@ jQuery("#list10").jqGrid('filterToolbar');
 
 
 jQuery("#list10_d").jqGrid({ 
-    height: 300, 
+    height: 300,
+    width: 650,
     //url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2007236935', 
     datatype: "json", 
     colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos','Vez'], 
@@ -102,8 +104,8 @@ jQuery("#list10_d").jqGrid({
                {name:'cua_turn',index:'cua_turn', width:40, align:"center"}, 
                {name:'cua_sec',index:'cua_sec', width:45, align:"center"}, 
                {name:'cur_nom',index:'cur_nom', width:300, align:"left"}, 
-               {name:'cur_cred',index:'cur_cred', width:35, align:"center"}, 
-               {name:'cua_vez',index:'cua_vez', width:30,align:"center", sortable:false, search:false} ], 
+               {name:'cur_cred',index:'cur_cred', width:50, align:"center"}, 
+               {name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false} ], 
     rowNum:10, 
     //rowList:[5,10,20], 
     pager: '#pager10_d', 
