@@ -30,6 +30,10 @@
 <table id="list10_d"></table>
 <div id="pager10"></div>
 </div>
+<br></br>
+<div style="width: 100%; text-align: center;">
+              <button align="right" id="impBoleta" class="btn btn-small btn-primary" onclick="imprimirBol();" >Imprimir Boleta</button>
+        </div>
 <!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
 <script>
 jQuery("#list10").jqGrid({ 

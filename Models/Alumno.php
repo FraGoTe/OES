@@ -80,6 +80,12 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012'";
         else
             return  $qResp2[0];
     }
+    public function getAlumnosMatri(){
+        $query = "select * from alumno al inner join matricula ma on
+                    ma.alu_cod = al.alu_cod and ma.mat_anio='2012'";
+        $qResp = $this->DbConnect->fetchAlltoArray($query);
+        return  $qResp;
+    }
 }
 
 ?>
