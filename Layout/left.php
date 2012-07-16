@@ -40,13 +40,18 @@
             </a>
         </li>
         <?php
-        }
-        else{
+        }else{
             ?>
             <li id="matri" >
             <a  onclick="change('admin-estado-matricula.php','matri')" >
                 <i class="icon-white icon-cog"></i>
                 Matricula Online
+            </a>
+            </li>
+            <li id="report" >
+            <a  onclick="change('reportes.php','report')" >
+                <i class="icon-white icon-cog"></i>
+                Reportes
             </a>
             </li>
         <?php
