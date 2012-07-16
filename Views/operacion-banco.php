@@ -23,7 +23,7 @@
     <div class="control-group">
         <label for="input01" class="control-label">Nº de operación :</label>  
         <div class="controls">
-            <input type="text" placeholder="voucher" />  
+            <input type="text" id="oper" placeholder="voucher" />  
         </div>
     </div>
 
@@ -41,16 +41,37 @@
         </div>
 
 </div>
-
+<div class="modal hide fade" id="invalido">
+            <div class="modal-header">
+              <h3>Datos inv&aacute;lidos</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Atenci&oacute;n</h4>
+              <p>Debe ingresar todos los datos para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <a data-dismiss="modal" class="btn btn-primary" style="color:white" onclick="$('#invalido').modal('hide');" href="#">Aceptar</a>
+                
+            </div>
+</div>
 <script>
-    function nexti(){
-    $.ajax({
-        url: 'selecciona-cursos.php',
-        dataType: 'html',
-        type: "POST",        
-        success: function(datos){
-               $("#conten").html(datos);
+    function nexti()
+    {
+    
+        
+        if(($("#datepicker").val()!="") && ($("#oper").val()!="") && ($("#fileInput").val()!=""))
+        { 
+            $.ajax({
+                url: 'selecciona-cursos.php',
+                async: false,
+                dataType: 'html',
+                type: "POST",        
+                success: function(datos){
+                       $("#conten").html(datos);
+                }
+            });
         }
-    });  
-}
+        else
+        $('#invalido').modal('show');
+    }
 </script>
