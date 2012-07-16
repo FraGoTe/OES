@@ -19,7 +19,9 @@
 <table id="retorno"></table>
 </div>
 <br></br>
-<div align="center">
+<div align="center"></div>
+
+<br />
 <table id="list10"></table>
 <div id="pager10"></div>
 </div>
@@ -29,15 +31,14 @@
 <div id="pager10"></div>
 </div>
 <!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
-
 <script>
 jQuery("#list10").jqGrid({ 
     url:'/Implementation/Admin-estado-matricula/ObtenerAlumno.php?seleccionar=IF', 
     datatype: "json", 
     colNames:['C&oacute;digo','Nombre','Estado'], 
-    colModel:[ {name:'ALU_COD',index:'ALU_COD', width:150}, 
-               {name:'ALU_NOM_COMPLETO',index:'ALU_NOM_COMPLETO', width:300}, 
-               {name:'MAT_ESTADO',index:'MAT_ESTADO', width:150}
+    colModel:[ {name:'ALU_COD',index:'ALU_COD', width:150,search:true}, 
+               {name:'ALU_NOM_COMPLETO',index:'ALU_NOM_COMPLETO', width:300,search:true}, 
+               {name:'MAT_ESTADO',index:'MAT_ESTADO', width:150,search:true}
              ],
     rowNum:50, 
    /* rowList:[10,20,30], */
@@ -46,7 +47,7 @@ jQuery("#list10").jqGrid({
     viewrecords: true, 
     sortorder: "asc", 
     multiselect: false, 
-    caption: "Alumnos por Escuela", 
+    caption: "Alumnos por Escuela",
     onSelectRow: function(ids) 
                  { 
       
@@ -72,7 +73,25 @@ jQuery("#list10").jqGrid({
                             jQuery("#list10_d").jqGrid('setCaption',"Alumno: "+nomcompleto.ALU_NOM_COMPLETO) .trigger('reloadGrid'); 
                     } 
                  } });
-jQuery("#list10").jqGrid('navGrid','#pager10',{add:false,edit:false,del:false}); 
+jQuery("#list10").jqGrid('navGrid','#pager',{edit:true,add:true,del:true,search:true,refresh:true});
+jQuery("#list10").jqGrid('navButtonAdd',"#pager",{caption:"Toggle",title:"Toggle Search Toolbar", buttonicon :'ui-icon-pin-s',
+        onClickButton:function(){
+                $("#list10")[0].toggleToolbar()
+        }
+});
+jQuery("#list10").jqGrid('navButtonAdd',"#pager",{caption:"Clear",title:"Clear Search",buttonicon :'ui-icon-refresh',
+        onClickButton:function(){
+                $("#list10")[0].clearToolbar()
+        }
+});
+jQuery("#list10").jqGrid('filterToolbar');             
+/*$("#list10").jqGrid('filterToolbar', {
+    stringResult : true,
+    searchOnEnter : false
+});*/
+//jQuery("#list10").jqGrid('navGrid','#pager10',{add:false,edit:false,del:false,search:true, searchtext:"Buscar"}); 
+
+
 jQuery("#list10_d").jqGrid({ 
     height: 300, 
     //url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2007236935', 
@@ -95,6 +114,6 @@ jQuery("#list10_d").jqGrid({
     caption:"Alumno" }).navGrid('#pager10_d',{add:false,edit:false,del:false}); 
 jQuery("#ms1").click( function() 
 { 
-    var s; 
-    s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow'); alert(s); });
+    var s; s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow'); alert(s); 
+});
 </script>
