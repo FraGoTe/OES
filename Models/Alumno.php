@@ -85,6 +85,7 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012'";
                     ma.alu_cod = al.alu_cod and ma.mat_anio='2012'";
         $qResp = $this->DbConnect->fetchAlltoArray($query);
         return  $qResp;
+        
     }
 }
 
