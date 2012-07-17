@@ -28,7 +28,7 @@ class SeleccionaCursos {
                  $seccion = 'A';
                  $checkval = "||data||cua_per=2012-{$curso['cur_sem']}*cur_cod={$curso['cur_cod']}*esc_cod={$curso['esc_cod']}*cua_turn=$turno*cua_sec=$seccion"; 
                 $cur .= "<tr>
-                    <td>2013-{$curso['cur_sem']}</td>
+                    <td>2012-{$curso['cur_sem']}</td>
                     <td>{$curso['cur_cod']}</td>
                     <td>$turno</td>
                     <td>$seccion</td>

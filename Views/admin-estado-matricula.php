@@ -114,7 +114,7 @@ jQuery("#list10_d").jqGrid({
                {name:'cur_cred',index:'cur_cred', width:50, align:"center"}
                //, {name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false}
            ], 
-    rowNum:10, 
+    rowNum:50, 
     //rowList:[5,10,20], 
     pager: '#pager10_d', 
     sortname: 'cur_cod', 
