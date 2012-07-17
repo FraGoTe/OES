@@ -99,6 +99,12 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/Obten
     
  <table id="list10_d"></table>
 </div>
+<div style="width: 100%; text-align: center;">
+    <form target="reporte" action="/Controllers/BoletaMatriculaController.php"> 
+        <input type="hidden" id="alu_cod" name="alu_cod" value="<?php echo $prematri[0][0]['alu_cod']; ?>" />
+    <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
+    <form/>
+</div>
 <script> 
     jQuery("#list10_d").jqGrid({ 
     height: 300,
