@@ -99,11 +99,17 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/Obten
     
  <table id="list10_d"></table>
 </div>
+<div style="width: 100%; text-align: center;">
+    <form target="reporte" action="/Controllers/BoletaMatriculaController.php"> 
+        <input type="hidden" id="alu_cod" name="alu_cod" value="<?php echo $prematri[0][0]['alu_cod']; ?>" />
+    <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
+    <form/>
+</div>
 <script> 
     jQuery("#list10_d").jqGrid({ 
     height: 300,
     width: 650,
-    url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2008013145', 
+    url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=<?php echo $_SESSION['alu_cod']; ?>', 
     datatype: "json", 
     colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos'], 
     colModel:[ {name:'cua_per',index:'cua_per', width:55, align:"center"}, 
@@ -114,7 +120,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/Obten
                {name:'cur_cred',index:'cur_cred', width:50, align:"center"}
                //,{name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false}
            ], 
-    rowNum:10, 
+    rowNum:50, 
     //rowList:[5,10,20], 
     pager: '#pager10_d', 
     sortname: 'cur_cod', 
