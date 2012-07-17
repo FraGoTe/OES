@@ -72,23 +72,30 @@ class Usuario {
                   {
                       $sql = "update usuario set usu_passw=md5('$pnew') where usu_id='$codigo';";
                       $qReso = $this->DbConnect->query($sql);
-                       echo "contraseña cambiada";
+                       echo "OK";
                   }
                   else
                   {
-                      echo "contrasenias con coinciden";
+                      echo "NOCON";
                   }
               }
           }
               else
               {
-                  echo "contraseña actual incorrecta";
+                  echo "INCO";
               }
           
           /*
           $sql = "SELECT * FROM ALUMNO WHERE ALU_COD='$alu_esc'";
           $qReso = $this->DbConnect->query($sql);*/
           
+      }
+      public function getuseq($usu)
+      {
+          $SQL = "select * from usuario where usu_passw = '".md5($usu)."'";
+          $qReso = $this->DbConnect->query($SQL);
+          $data = $this->DbConnect->fetchtoarray($qReso); 
+          return $data;
       }
 }
 

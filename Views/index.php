@@ -8,6 +8,20 @@ include '../Layout/left.php';
     <p>
     </p>
     </div>
+<script>
+     $.ajax({
+		   async:true,
+		   type: "POST",
+		   dataType: "html",
+		   contentType: "application/x-www-form-urlencoded",
+		   url:'/Implementation/Admin-estado-matricula/ValidaClaves.php',
+		   success:function(datos){
+                       if(datos=='NO')
+                           change('cambiar-contrasena.php','cambiapass');
+                   },
+		   timeout:4000
+            });	
+</script>
 <?php
 include '../Layout/bottom.php';
 ?>
