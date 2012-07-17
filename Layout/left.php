@@ -64,6 +64,12 @@
                 Reportes
             </a>
             </li>
+            <li id="report2" >
+            <a  onclick="change('admin-mantenimiento-usuarios.php','report2')" >
+                <i class="icon-white icon-cog"></i>
+                Mantenimiento de usuarios
+            </a>
+            </li>
         <?php
         }
         ?>

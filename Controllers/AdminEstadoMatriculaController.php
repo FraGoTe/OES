@@ -37,6 +37,12 @@ class AdminEstadoMatriculaController {
            $data1 = $objalumno->getAllAluFiltro($datos,$escuela);
            return $data1;
         }
+        public function getaludata2($datos=array())
+        {
+           $objalumno = new Alumno();
+           $data1 = $objalumno->getAllAluFiltro2($datos);
+           return $data1;
+        }
 
 
 }

@@ -57,6 +57,27 @@ class Alumno {
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }
+    
+    public function getAllAluFiltro2($arra = array(),$sidx,$sord){//$alu_esc
+            $SQL1 = "SELECT AL.ALU_COD, AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL
+                        ";
+            $i=0;if(!empty($arra)){
+                $SQL1 .= "WHERE ";
+                       foreach($arra as $key=>$val)
+                       {
+                           if($i==0)
+                               $SQL1 .= " $key like '%$val%'";
+                           else
+                           $SQL1.= "AND $key like '%$val%'";
+                       }
+                       }
+             $SQL1 .= "ORDER BY $sidx $sord";
+                                   
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
     public function getAllCursos($alucod){
             $SQL1 = "SELECT *FROM CURSO CUR INNER JOIN CURSO_ALUMNO CURALU ON CUR.CUR_COD=CURALU.CUR_COD
 INNER JOIN ALUMNO AL ON AL.ALU_COD = CURALU.ALU_COD AND AL.ALU_ESC = CUR.ESC_COD         
