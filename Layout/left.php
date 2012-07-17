@@ -3,14 +3,42 @@
         var idold = $(".active").attr('id');
         $("#"+idold).removeAttr('class');
         $("#"+id).attr('class','active');
-    $.ajax({
-        url: url,
-        dataType: 'html',
-        type: "POST",        
-        success: function(datos){
-               $("#conten").html(datos);
-        }
-    });  
+   
+    if(url=="operacion-banco.php")
+        {
+       var nurl;
+       
+        $.ajax({
+            async: false,
+            url: "../Implementation/Valida-Matricula/Valida.php",
+            dataType: 'html',   
+            success: function(datos){
+                if(datos=='S')
+                   nurl='imprimir-boleta.php';
+                else
+                   nurl='operacion-banco.php';
+                  $.ajax({
+                            async: false,
+                            url: nurl,
+                            dataType: 'html',
+                            type: "POST",        
+                            success: function(datos){
+                                   $("#conten").html(datos);
+                            }
+                        });
+            }
+        });
+    }else{
+                $.ajax({
+                    async: false,
+                    url: url,
+                    dataType: 'html',
+                    type: "POST",        
+                    success: function(datos){
+                           $("#conten").html(datos);
+                    }
+                });
+    }
 }
 </script>
 <div class="well" style="width: 250px; padding: 8px 0; float:left;">
@@ -39,7 +67,7 @@
             </a>
         </li>
         <?php  } ?>
-        <li class="nav-header">Matricula 2013</li>
+        <li class="nav-header">Matricula 2012</li>
         <?php
         if($_SESSION["rol"] == "alum") {
         ?>
