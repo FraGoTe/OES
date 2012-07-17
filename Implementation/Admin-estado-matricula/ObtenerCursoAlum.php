@@ -1,5 +1,5 @@
 <?php
-include "{$_SERVER['DOCUMENT_ROOT']}./Controllers/AdminEstadoMatriculaController.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/Controllers/AdminEstadoMatriculaController.php";
 //session_start();
 $objMuestraCursos = new AdminEstadoMatriculaController();
 
