@@ -1,8 +1,8 @@
 <?php
 
-include_once "{$_SERVER['DOCUMENT_ROOT']}./Models/Curso_Alumno.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}./Models/Curso.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}./Models/Alumno.php"; 
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso_Alumno.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Alumno.php"; 
 /**
  * Description of SeleccionaCurso
  *
@@ -26,7 +26,7 @@ class SeleccionaCursos {
                 if(@$curso){
                  $turno = 'M';
                  $seccion = 'A';
-                 $checkval = "data=**cua_per=2013-{$curso['cur_sem']}*cur_cod={$curso['cur_cod']}*esc_cod={$curso['esc_cod']}*cua_vez=1*cua_turn=$turno*cua_sec=$seccion*cur_cred={$curso['cur_cred']}*cur_nom={$curso['cur_nom']}**"; 
+                 $checkval = "||data||cua_per=2012-{$curso['cur_sem']}*cur_cod={$curso['cur_cod']}*esc_cod={$curso['esc_cod']}*cua_turn=$turno*cua_sec=$seccion"; 
                 $cur .= "<tr>
                     <td>2013-{$curso['cur_sem']}</td>
                     <td>{$curso['cur_cod']}</td>
@@ -54,12 +54,13 @@ class SeleccionaCursos {
         return $cur;
     }
     
-    public function getpreview($cadena){
+    public function getpreview(){
         
         $objAlumno = new Alumno();
-        session_start();
-        $AluData = $objAlumno->getAluData($_SESSION['alu_cod']);
+       // session_start();
         
+        $AluData = $objAlumno->getAluData($_SESSION['alu_cod']);
+/*
         $array = explode('**',$cadena);
         $i=0;
         foreach($array as $arrayito){   
@@ -102,8 +103,8 @@ class SeleccionaCursos {
          $datas .= "{per:'{$arr['per']}',cod:'{$arr['cod']}',tur:'{$arr['tur']}',
                      sec:'{$arr['sec']}',asig:'{$arr['asig']}',cre:'{$arr['cre']}',
                      vez:'{$arr['vez']}'},";
-
-        $datos = array($AluData, $datas);
+*/
+        $datos = array($AluData, '');
                      
         return $datos;
     }

@@ -1,5 +1,6 @@
 <?php
-include '../Implementation/Selecciona-Cursos/ObtenerPrematricula.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Insertar-Cursos/InsertarCursos.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/ObtenerPrematricula.php";
 ?>
 <style>
     .controls{
@@ -96,26 +97,34 @@ include '../Implementation/Selecciona-Cursos/ObtenerPrematricula.php';
         </div>
     </fieldset>
     
- <table id="list4"></table>
+ <table id="list10_d"></table>
 </div>
-<script>
-    $("#list4").jqGrid({ 
-        datatype: "local", 
-        height: 280, 
-        colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos','Vez'], 
-        colModel:[ 
-            {name:'per',index:'per', width:45}, 
-            {name:'cod',index:'cod', width:45, align:"center"}, 
-            {name:'tur',index:'tur', width:42, align:"center"}, 
-            {name:'sec',index:'sec', width:42, align:"center"}, 
-            {name:'asig',index:'asig', width:390, align:"left"}, 
-            {name:'cre',index:'cre', width:48,align:"center",sorttype:"int"}, 
-            {name:'vez',index:'vez', width:43, align:"center"} ], 
-        caption: "Cursos Matriculados" }); 
-    
-    var mydata = [ 
-        <?php echo $prematri[1]; ?>
-             ]; 
-    
-        for(var i=0;i<=mydata.length;i++) $("#list4").jqGrid('addRowData',i+1,mydata[i]);
+<script> 
+    jQuery("#list10_d").jqGrid({ 
+    height: 300,
+    width: 650,
+    url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2008013145', 
+    datatype: "json", 
+    colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos'], 
+    colModel:[ {name:'cua_per',index:'cua_per', width:55, align:"center"}, 
+               {name:'cur_cod',index:'cur_cod', width:55, align:"center"}, 
+               {name:'cua_turn',index:'cua_turn', width:40, align:"center"}, 
+               {name:'cua_sec',index:'cua_sec', width:45, align:"center"}, 
+               {name:'cur_nom',index:'cur_nom', width:300, align:"left"}, 
+               {name:'cur_cred',index:'cur_cred', width:50, align:"center"}
+               //,{name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false}
+           ], 
+    rowNum:10, 
+    //rowList:[5,10,20], 
+    pager: '#pager10_d', 
+    sortname: 'cur_cod', 
+    viewrecords: true, 
+    sortorder: "asc", 
+   // multiselect: true, 
+    caption:"Alumno" }).navGrid('#pager10_d',{add:false,edit:false,del:false}); 
+
+$("#list10_d").jqGrid('setGridParam',
+    {url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2008013145',page:1}); 
+        $("#list10_d").jqGrid('setCaption',"Cursos Matriculados").trigger('reloadGrid');
+           var s; s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow');
 </script>

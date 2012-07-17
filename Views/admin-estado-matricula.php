@@ -32,8 +32,11 @@
 </div>
 <br></br>
 <div style="width: 100%; text-align: center;">
-              <button align="right" id="impBoleta" class="btn btn-small btn-primary" onclick="imprimirBol();" >Imprimir Boleta</button>
-        </div>
+    <form target="reporte" action="/Controllers/BoletaMatriculaController.php"> 
+        <input type="hidden" id="alu_cod" name="alu_cod" value="" />
+    <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
+    <form/>
+  </div>
 <!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
 <script>
 jQuery("#list10").jqGrid({ 
@@ -55,7 +58,7 @@ jQuery("#list10").jqGrid({
     caption: "Alumnos por Escuela",
     onSelectRow: function(ids) 
                  { 
-      
+      $("#alu_cod").val(ids);
                     if(ids == null) 
                     { 
                         nomcompleto= jQuery("#list10").jqGrid('getRowData',ids);
@@ -102,14 +105,15 @@ jQuery("#list10_d").jqGrid({
     width: 650,
     //url:'/Implementation/Admin-estado-matricula/ObtenerCursoAlum.php?codigoalum=2007236935', 
     datatype: "json", 
-    colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos','Vez'], 
+    colNames:['Periodo','C&oacute;digo', 'Turno', 'Secci&oacute;n','Asignatura','Creditos'], 
     colModel:[ {name:'cua_per',index:'cua_per', width:55, align:"center"}, 
                {name:'cur_cod',index:'cur_cod', width:55, align:"center"}, 
                {name:'cua_turn',index:'cua_turn', width:40, align:"center"}, 
                {name:'cua_sec',index:'cua_sec', width:45, align:"center"}, 
                {name:'cur_nom',index:'cur_nom', width:300, align:"left"}, 
-               {name:'cur_cred',index:'cur_cred', width:50, align:"center"}, 
-               {name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false} ], 
+               {name:'cur_cred',index:'cur_cred', width:50, align:"center"}
+               //, {name:'cua_vez',index:'cua_vez', width:40,align:"center", sortable:false, search:false}
+           ], 
     rowNum:10, 
     //rowList:[5,10,20], 
     pager: '#pager10_d', 
