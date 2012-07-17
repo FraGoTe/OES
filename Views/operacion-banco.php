@@ -1,7 +1,49 @@
+<?php
+include '../Implementation/Muestra-Datos/ObtenerData.php';
+@$aludata = $aludata[0];
+?>
+<style>
+    
+    #upload {
+   position: relative;
+   width: 80px;
+   height: 20px;
+   
+   left:20px;
+   overflow:hidden;
+   background:url('../Public/images/uploadimg.png') left top no-repeat;
+    }  
+
+    #upload input {
+   position: absolute;
+   left: 20px;
+   right: 0px;
+   top: 0px;
+   margin:0;
+   padding:0;
+   filter: Alpha(Opacity=0);
+   -moz-opacity: 0;
+   opacity: 0;
+   }
+</style>
 <script>
-    $(document).ready(function (){
+    $(document).ready
+    (
+    function ()
+    {
         $( "#datepicker" ).datepicker();
-    }) ;
+        
+        $('#photoimg').live('change', function()
+        {
+            $("#preview").html('');
+            $("#preview").html('<img src="../Public/images/loader.gif" width="130" height="150" alt="Uploading...."/>');
+            $("#imageform").ajaxForm(
+            {
+                target: '#preview'
+            }).submit();
+        });
+    }
+    ) ;
 </script>
 
 <div class="form-horizontal" >
@@ -29,8 +71,19 @@
 
     <div class="control-group">
         <label for="fileInput" class="control-label">Voucher Escaneado : </label>
-        <div class="controls">
-            <input type="file" id="fileInput" class="input-file" />
+        <div id="foto" >
+             <div id='preview'>
+                 <?php
+                 //echo "../../Public/images/Fotos/{$_SESSION['usucod']}.jpg";
+                if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/Public/images/Boucher/{$_SESSION['alu_cod']}.jpg"))
+                 echo "<img width='130' height='150' src='../../Public/images/Boucher/{$_SESSION['alu_cod']}.jpg' class='preview'>";
+                 ?>
+            </div>
+            <form id="imageform" method="post" enctype="multipart/form-data" action='../Implementation/Muestra-Datos/UploadImage.php'>
+                <div id="upload" style="border: 0px;" class="btn btn-primary">
+                <input type="file"  class="btn btn-primary" name="photoimg" id="photoimg" />
+                </div>
+            </form>       
         </div>
     </div>
       
@@ -41,6 +94,7 @@
         </div>
 
 </div>
+
 <div class="modal hide fade" id="invalido">
             <div class="modal-header">
               <h3>Datos inv&aacute;lidos</h3>
@@ -59,7 +113,7 @@
     {
     
         
-        if(($("#datepicker").val()!="") && ($("#oper").val()!="") && ($("#fileInput").val()!=""))
+        if(($("#datepicker").val()!="") && ($("#oper").val()!="")&& ($("#photoimg").val()!=""))
         { 
             $.ajax({
                 url: 'selecciona-cursos.php',
