@@ -14,11 +14,11 @@ class ReporteController {
         $pdf->AddPage();
         
         $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(190,10,'REPORTE DE MATRICULADOS POR ESCUELA',1,1,'C');
+        $pdf->Cell(190,10,'REPORTE DE MATRICULADOS POR ESCUELA',0,1,'C');
         $pdf->Cell(190,5,'',0,1,'C');
         
             $pdf->SetFont('Arial','B',14);
-            $pdf->Cell(190,10,'Ingenieria Informatica',1,1);
+            $pdf->Cell(190,10,'Ingenieria Informatica',0,1);
             foreach ($alumnos as $alumno) {
                 if($alumno['alu_esc']=="IF"){
                     $pdf->SetFont('Arial','',12);
@@ -32,7 +32,7 @@ class ReporteController {
             $pdf->Cell(190,5,'',0,1,'C');
             
             $pdf->SetFont('Arial','B',14);
-            $pdf->Cell(190,10,'Ingenieria Electronica',1,1);
+            $pdf->Cell(190,10,'Ingenieria Electronica',0,1);
             foreach ($alumnos as $alumno) {
                 if($alumno['alu_esc']=="IL"){
                     $pdf->SetFont('Arial','',12);
@@ -46,7 +46,7 @@ class ReporteController {
             $pdf->Cell(190,5,'',0,1,'C');
             
             $pdf->SetFont('Arial','B',14);
-            $pdf->Cell(190,10,'Ingenieria Telecomunicaciones',1,1);
+            $pdf->Cell(190,10,'Ingenieria Telecomunicaciones',0,1);
             foreach ($alumnos as $alumno) {
                 if($alumno['alu_esc']=="IT"){
                     $pdf->SetFont('Arial','',12);
@@ -60,7 +60,7 @@ class ReporteController {
             $pdf->Cell(190,5,'',0,1,'C');
             
             $pdf->SetFont('Arial','B',14);
-            $pdf->Cell(190,10,'Ingenieria Mecatronica',1,1);
+            $pdf->Cell(190,10,'Ingenieria Mecatronica',0,1);
             foreach ($alumnos as $alumno) {
                 if($alumno['alu_esc']=="IM"){
                     $pdf->SetFont('Arial','',12);
