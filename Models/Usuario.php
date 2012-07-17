@@ -54,6 +54,39 @@ class Usuario {
           $data = $this->DbConnect->fetchtoarray($qReso); 
           return $data;
       }
+      
+      public function actualizarPassword($pactual, $pnew, $pnew2){
+          $seleccionaUsuario="SELECT * FROM usuario where usu_id='$pactual'";
+          $alum = $this->DbConnect->query($seleccionaUsuario);
+          $data = $this->DbConnect->fetchtoarray($alum);
+          //var_dump($data);
+          if(isset ($data[0]['usu_id']))
+          {
+              $codigo = $data[0]['usu_id'];
+              if(($codigo != null)||($codigo==$pactual))
+              {
+                  if($pnew==$pnew2)
+                  {
+                      $sql = "update usuario set usu_passw=md5('$pnew') where usu_id='$codigo';";
+                      $qReso = $this->DbConnect->query($sql);
+                       echo "contraseña cambiada";
+                  }
+                  else
+                  {
+                      echo "contrasenias con coinciden";
+                  }
+              }
+          }
+              else
+              {
+                  echo "contraseña actual incorrecta";
+              }
+          
+          /*
+          $sql = "SELECT * FROM ALUMNO WHERE ALU_COD='$alu_esc'";
+          $qReso = $this->DbConnect->query($sql);*/
+          
+      }
 }
 
 ?>

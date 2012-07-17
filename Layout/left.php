@@ -29,6 +29,12 @@
                 Mis datos
         </a>
         </li>
+        <li id="cambiapass" >
+            <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
+                <i class="icon-white icon-cog"></i>
+                Cambiar contrase&ntilde;a
+            </a>
+        </li>
         <li class="nav-header">Matricula 2013</li>
         <?php
         if($_SESSION["rol"] == "alum") {
