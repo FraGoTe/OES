@@ -1,5 +1,9 @@
+<?php
+include '../Implementation/Muestra-Datos/ObtenerData.php';
+@$aludata = $aludata[0];
+?>
 <p align="center">OFICINA DE SERVICIOS ACAD&Eacute;MICOS</p>
-<p align="center">Administrador: <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="" disabled=""/></p>
+<p align="center">Administrador: <input class="input-xlarge disabled" value="<?php echo $aludata['alu_nom_completo']; ?>" id="disabledInput" type="text" placeholder="" disabled=""/></p>
 <table width="545" height="30" border="0" align="center">
   <tr>
     <td width="162" align="center">Facultad:    

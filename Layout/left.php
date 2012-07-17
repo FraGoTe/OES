@@ -50,6 +50,9 @@
                 Inicio
             </a>
         </li>
+        <?php
+        if($_SESSION["rol"] == "alum") {
+        ?>
         <li id="misda" >
 
        <a onclick="change('muestra-datos.php','misda')">
@@ -58,6 +61,18 @@
         </a>
         </li>
         <?php
+        }else{
+            ?>
+        <li id="misda" >
+
+       <a onclick="change('muestra-datos-admin.php','misda')">
+                <i class="icon-white icon-user"></i>
+                Mis datos
+        </a>
+        </li>
+               
+        <?php
+        }
         if($_SESSION["usulogin"] == $_SESSION["usupass"]) {
         ?>
         <li id="cambiapass" >
