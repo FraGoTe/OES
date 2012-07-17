@@ -20,8 +20,8 @@ class Usuario {
     
     public function selectUser($login,$pass){
                 $login = mysql_real_escape_string($login);
-		$pass = md5(mysql_real_escape_string($pass));
-		$sql="SELECT * FROM usuario where usu_id = '$login' and usu_passw = '$pass';";
+		$passw = md5(mysql_real_escape_string($pass));
+		$sql="SELECT * FROM usuario where usu_id = '$login' and usu_passw = '$passw';";
                 
 		$qReso = $this->DbConnect->query($sql);
 		$i = 0;
@@ -29,6 +29,7 @@ class Usuario {
 		while($array=mysql_fetch_array($qReso,MYSQL_NUM))
 		{
                  	$usucod = $array[0];
+                        $usupass = $array[1];
 			$estado = $array[2];
                         $rol = $array[3];
                         $alucod = $array[4];
@@ -38,6 +39,8 @@ class Usuario {
 		{
 			session_start();
 			$_SESSION["usucod"] = $usucod;
+                        $_SESSION["usulogin"] = $login;
+                        $_SESSION["usupass"] = $pass;
                         $_SESSION["alu_cod"] = $alucod;
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
