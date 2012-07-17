@@ -103,8 +103,8 @@ include '../Implementation/Muestra-Datos/ObtenerData.php';
              <div id='preview'>
                  <?php
                  //echo "../../Public/images/Fotos/{$_SESSION['usucod']}.jpg";
-                if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/Public/images/Fotos/{$_SESSION['alu_cod']}.jpg"))
-                 echo "<img width='130' height='150' src='../../Public/images/Fotos/{$_SESSION['alu_cod']}.jpg' class='preview'>";
+                if(file_exists("{$_SERVER['DOCUMENT_ROOT']}/Public/images/Boucher/{$_SESSION['alu_cod']}.jpg"))
+                 echo "<img width='130' height='150' src='../../Public/images/Boucher/{$_SESSION['alu_cod']}.jpg' class='preview'>";
                  ?>
             </div>
             <form id="imageform" method="post" enctype="multipart/form-data" action='../Implementation/Muestra-Datos/UploadImage.php'>

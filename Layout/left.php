@@ -118,6 +118,12 @@
         ?>
         
         <li class="nav-header">Descargas</li>
+        <li id="manual">
+             <a onclick="change('manual-estudiante.php','manual')">
+                <i class="icon-white icon-book"></i>
+                Manual del Estudiante
+            </a>
+        </li>
          <li id="reg">
              <a onclick="change('reg.php','reg')">
                 <i class="icon-white icon-book"></i>

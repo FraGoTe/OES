@@ -28,7 +28,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/ObtenerCur
 </fieldset>
 <div class="modal hide fade" id="myModal">
             <div class="modal-header">
-              <h3>¿Est&oacute; seguro de Matricularse?</h3>
+              <h3>T&eacuterminos y condiciones de la Matr&iacutecula</h3>
             </div>
             <div class="modal-body">
               <h4>Atenci&oacute;n</h4>
@@ -36,7 +36,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/ObtenerCur
             </div>
             <div class="modal-footer">
                 <a data-dismiss="modal" class="btn" onclick="$('#myModal').modal('hide');" href="#">Cancelar</a>
-                <a class="btn btn-primary" style="color: white;" onclick="continuar();" href="#">Continuar</a>
+                <a class="btn btn-primary" style="color: white;" onclick="continuar();" href="#">He le&iacutedo, y acepto los t&eacuterminos</a>
             </div>
 </div>
 <script>
