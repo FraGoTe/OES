@@ -1,9 +1,14 @@
+<div class="form-horizontal">
+    <fieldset>
+        <legend>Datos del Alumno</legend>
 <form name="form1" id="form1" onsubmit="return validacion()">
   <p>Contrase&ntilde;a Actual</p><input  type="password" id="passactual" name="passactual" value="" />  <p></p>
   <p>Nueva Contrase&ntilde;a</p><input  type="password" id="passnew1" name="passnew1" value="" />  <p></p>
   <p>(Confirmar nueva Contrase&ntilde;a)</p><input  type="password" id="passnew2" name="passnew2" value="" />  <p></p>
   <input name="submit" type="submit" class="btn btn-small btn-primary" value="Cambiar Password" />
 </form>
+    </fieldset>
+</div>
 <script>
     function validacion()
     {
