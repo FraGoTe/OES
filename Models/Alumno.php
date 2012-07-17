@@ -87,6 +87,12 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012'";
         return  $qResp;
         
     }
+    
+    public function getAlumnosNoMatri(){
+        $query0 = "select * from alumno where alu_cod not in (select alu_cod from matricula)";
+        $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
+        return  $qResp0;
+    }
 }
 
 ?>
