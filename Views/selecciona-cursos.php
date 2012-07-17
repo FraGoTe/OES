@@ -1,5 +1,5 @@
 <?php
-include '../Implementation/Selecciona-Cursos/ObtenerCursos.php';
+include "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/ObtenerCursos.php";
 ?>    
 <fieldset>
         <legend>Cursos a Matricular</legend>
@@ -55,7 +55,7 @@ function continuar(){
         url: 'imprimir-boleta.php',
         dataType: 'html',
         type: "POST",
-        data: data,
+        data: "data="+data,
         success: function(datos){
                $("#conten").html(datos);
         }

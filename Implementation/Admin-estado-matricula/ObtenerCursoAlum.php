@@ -35,8 +35,9 @@ foreach($cur as $curso){
                         $curso['cua_turn'],
                         $curso['cua_sec'],
                         $curso['cur_nom'],
-                        $curso['cur_cred'],
-                        $curso['cua_vez']);
+                        $curso['cur_cred']
+                        //,$curso['cua_vez']
+        );
     
     /*$responce2->rows[$i]['cell']=array($curso['cur_ciclo'],
                         $curso['cur_cod'],
