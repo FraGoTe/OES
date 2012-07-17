@@ -32,8 +32,11 @@
 </div>
 <br></br>
 <div style="width: 100%; text-align: center;">
-              <button align="right" id="impBoleta" class="btn btn-small btn-primary" onclick="imprimirBol();" >Imprimir Boleta</button>
-        </div>
+    <form target="reporte" action="/Controllers/BoletaMatriculaController.php"> 
+        <input type="hidden" id="alu_cod" name="alu_cod" value="" />
+    <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
+    <form/>
+  </div>
 <!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
 <script>
 jQuery("#list10").jqGrid({ 
@@ -55,7 +58,7 @@ jQuery("#list10").jqGrid({
     caption: "Alumnos por Escuela",
     onSelectRow: function(ids) 
                  { 
-      
+      $("#alu_cod").val(ids);
                     if(ids == null) 
                     { 
                         nomcompleto= jQuery("#list10").jqGrid('getRowData',ids);
