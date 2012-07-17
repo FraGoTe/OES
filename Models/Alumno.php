@@ -87,7 +87,13 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012' ORDER BY CUR.CUR_SEM,CURALU.cu
         return  $qResp;
         
     }
-    public function insertCursoAlu($inserta){
+    public function getAlumnosNoMatri(){
+        $query0 = "select * from alumno where alu_cod not in (select alu_cod from matricula)";
+        $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
+        return  $qResp0;
+    }
+
+     public function insertCursoAlu($inserta){
         return $this->DbConnect->query($inserta);
     }
 }

@@ -19,7 +19,7 @@
         </div>
         <div class="control-group">
             <label class="radio">
-                <input type="radio" id="report" name="report" value="D"> Alumnos que NO se pueden matricular
+                <input type="radio" id="report" name="report" value="D"> Alumnos NO Matriculados por Escuela
             </label>
         </div>
         <div class="form-actions">
