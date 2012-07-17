@@ -20,7 +20,7 @@
     <iframe id="reporte" name="reporte"  style="display: none;"/>
     <form target="reporte" action="../Controllers/MantenimientoController.php"> 
         <input type="hidden" id="alu_cod" name="alu_cod" value="" />
-    <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
+    <button align="right" id="resetpass" class="btn btn-small btn-primary" >Resetear Password</button>
     </form>
   </div>
 </fieldset>
@@ -68,8 +68,8 @@ jQuery("#list10").jqGrid('filterToolbar');
 
 
 
-jQuery("#ms1").click( function() 
+jQuery("#resetpass").click( function() 
 { 
-    var s; s = jQuery("#list10_d").jqGrid('getGridParam','selarrrow'); alert(s); 
+    alert("\t \t Confirmación \n La clave se reseteo exitosamente"); 
 });
 </script>
