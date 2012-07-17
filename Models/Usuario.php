@@ -90,6 +90,13 @@ class Usuario {
           $qReso = $this->DbConnect->query($sql);*/
           
       }
+      
+      public function resetearPassword($codigo){
+          $seleccionaUsuario="update usuario set usu_passw=md5('$codigo') where usu_id='$codigo'";
+          $alum = $this->DbConnect->query($seleccionaUsuario);
+          
+          
+      }
 }
 
 ?>

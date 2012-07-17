@@ -17,10 +17,11 @@
 </div>
 <br></br>
 <div style="width: 100%; text-align: center;">
-    <form target="reporte" action="/Controllers/BoletaMatriculaController.php"> 
+    <iframe id="reporte" name="reporte"  style="display: none;"/>
+    <form target="reporte" action="../Controllers/MantenimientoController.php"> 
         <input type="hidden" id="alu_cod" name="alu_cod" value="" />
     <button align="right" id="impBoleta" class="btn btn-small btn-primary" >Imprimir Boleta</button>
-    <form/>
+    </form>
   </div>
 </fieldset>
 <!-- <a href="javascript:void(0)" id="ms1">Get Selected id's</a> -->
