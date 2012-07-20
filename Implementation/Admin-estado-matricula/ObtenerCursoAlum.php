@@ -18,7 +18,7 @@ foreach($cur as $curso){
                         $curso['cur_cod'],
                         $curso['cua_turn'],
                         $curso['cua_sec'],
-                        utf8_decode($curso['cur_nom']),
+                        utf8_encode($curso['cur_nom']),
                         $curso['cur_cred']
                         //,$curso['cua_vez']
         );

@@ -24,6 +24,7 @@ class SeleccionaCursos {
             $totalCred = 0;
             foreach($objCurso->getCursosCachimbos($alu_cod) as $curso){
                 if(@$curso){
+                 $curnom = utf8_encode($curso['cur_nom']);
                  $turno = 'M';
                  $seccion = 'A';
                  $checkval = "||data||cua_per=2012-{$curso['cur_sem']}*cur_cod={$curso['cur_cod']}*esc_cod={$curso['esc_cod']}*cua_turn=$turno*cua_sec=$seccion"; 
@@ -32,7 +33,7 @@ class SeleccionaCursos {
                     <td>{$curso['cur_cod']}</td>
                     <td>$turno</td>
                     <td>$seccion</td>
-                    <td>{$curso['cur_nom']}</td>
+                    <td>{$curnom}</td>
                     <td>{$curso['cur_cred']}</td>
                     <td></td>
                     <td><input type='checkbox' disabled='disabled' checked='checked' value='$checkval' /></td>

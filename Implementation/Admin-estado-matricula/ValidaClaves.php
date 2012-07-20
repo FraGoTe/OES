@@ -1,11 +1,12 @@
 <?php
 include "{$_SERVER['DOCUMENT_ROOT']}/Models/Usuario.php";
-
+session_start();
 $objUsuario = new Usuario();
+$datos = $objUsuario->getuseq($_SESSION['alu_cod']);
 
-if(@$objUsuario->getuseq($_SESSION['alu_cod']))
-        echo "SI";
-else
+if(@!empty($datos))
         echo "NO";
+else
+        echo "SI";
 
 ?>

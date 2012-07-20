@@ -21,7 +21,9 @@ class Usuario {
     public function selectUser($login,$pass){
                 $login = mysql_real_escape_string($login);
 		$passw = md5(mysql_real_escape_string($pass));
-		$sql="SELECT * FROM usuario where usu_id = '$login' and usu_passw = '$passw';";
+		$sql="SELECT * FROM usuario  u
+                inner join alumno al on al.alu_cod=u.alu_cod
+                where u.usu_id = '$login' and u.usu_passw = '$passw';";
                 
 		$qReso = $this->DbConnect->query($sql);
 		$i = 0;
@@ -33,6 +35,7 @@ class Usuario {
 			$estado = $array[2];
                         $rol = $array[3];
                         $alucod = $array[4];
+                        $nombre = $array[8];
 			$i++;
 		}
                 if($i > 0)
@@ -45,6 +48,7 @@ class Usuario {
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
                         $_SESSION["active"] = true;
+                        $_SESSION["nombre"] = utf8_encode($nombre);
                            return "found";
 		}else{
                     return "notfound";
