@@ -51,17 +51,31 @@
             </a>
         </li>
         <?php
-        if($_SESSION["rol"] == "alum") {
+        if($_SESSION["rol"] == "alum") 
+        {
         ?>
         <li id="misda" >
 
-       <a onclick="change('muestra-datos.php','misda')">
+        <a onclick="change('muestra-datos.php','misda')">
                 <i class="icon-white icon-user"></i>
                 Mis datos
         </a>
         </li>
         <?php
-        }else{
+            if($_SESSION["passencript"] == $_SESSION["usupass"]) 
+            {
+        ?>
+            <li id="cambiapass" >
+                <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
+                    <i class="icon-white icon-cog"></i>
+                    Cambiar contrase&ntilde;a
+                </a>
+            </li>
+        <?php 
+            } 
+        }
+        else
+        {
             ?>
         <li id="misda" >
 
@@ -70,18 +84,20 @@
                 Mis datos
         </a>
         </li>
+        <li id="cambiapass" >
+                <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
+                    <i class="icon-white icon-cog"></i>
+                    Cambiar contrase&ntilde;a
+                </a>
+         </li>
                
         <?php
-        }
-        if($_SESSION["usulogin"] == $_SESSION["usupass"]) {
+        }  
         ?>
-        <li id="cambiapass" >
-            <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
-                <i class="icon-white icon-cog"></i>
-                Cambiar contrase&ntilde;a
-            </a>
-        </li>
-        <?php  } ?>
+
+        
+        
+        
         <li class="nav-header">Matricula 2012</li>
         <?php
         if($_SESSION["rol"] == "alum") {
