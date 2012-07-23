@@ -66,19 +66,20 @@ class Usuario {
           return $data;
       }
       
-      public function actualizarPassword($pactual, $pnew, $pnew2){
-          $seleccionaUsuario="SELECT * FROM usuario where usu_id='$pactual'";
+      public function actualizarPassword($codi,$pwd , $pactual, $pnew, $pnew2){
+          $seleccionaUsuario="SELECT * FROM usuario where usu_id='$codi'";
           $alum = $this->DbConnect->query($seleccionaUsuario);
           $data = $this->DbConnect->fetchtoarray($alum);
           //var_dump($data);
+          
           if(isset ($data[0]['usu_id']))
           {
-              $codigo = $data[0]['usu_id'];
-              if(($codigo != null)||($codigo==$pactual))
+              //$codigo = $this->generarPass($codi);
+              if(($pactual != null)||($pwd==$pactual))
               {
                   if($pnew==$pnew2)
                   {
-                      $sql = "update usuario set usu_passw=md5('$pnew') where usu_id='$codigo';";
+                      $sql = "update usuario set usu_passw=md5('$pnew') where usu_id='$codi';";
                       $qReso = $this->DbConnect->query($sql);
                        echo "OK";
                   }
@@ -100,8 +101,21 @@ class Usuario {
       }
       public function resetearPassword($codigo)
       {
-          $seleccionaUsuario="update usuario set usu_passw=md5('$codigo') where usu_id='$codigo'";
-          $alum = $this->DbConnect->query($seleccionaUsuario);
+          if($codigo=='unfv')
+          {
+              $seleccionaUsuario="update usuario set usu_passw=md5('unfv') where usu_id='$codigo'";
+              $alum = $this->DbConnect->query($seleccionaUsuario);
+              
+          }
+              
+          else
+          {
+              $cod2 = $this->generarPass($codigo);
+              $seleccionaUsuario="update usuario set usu_passw=md5('$cod2') where usu_id='$codigo'";
+              $alum = $this->DbConnect->query($seleccionaUsuario);
+          }
+
+          
       }
       public function getuseq($usu)
       {
