@@ -46,7 +46,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -80,7 +80,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -116,7 +116,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -150,7 +150,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$anio,1,1,'C');    
                     }
@@ -195,7 +195,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -227,7 +227,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -259,7 +259,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -291,7 +291,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -323,7 +323,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$alumno['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$alumno['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$alumno['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -367,7 +367,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -399,7 +399,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -431,7 +431,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -463,7 +463,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -495,7 +495,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
@@ -541,7 +541,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -575,7 +575,7 @@ class ReporteController {
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$nomatri['alu_cod'],1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$nomatri['alu_nom_completo'],1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -608,10 +608,12 @@ class ReporteController {
                                break;
                 }
                 if($nomatri['alu_esc']=="IT"){
+                    $codit=@$nomatri['alu_cod'];
+                    $almit=@$nomatri['alu_nom_completo'];
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(30,10,@$nomatri['alu_cod'],1,0,'C');
+                    $pdf->Cell(30,10,@$codit,1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$almit,1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,@$anio,1,1,'C');    
                     }
@@ -642,10 +644,12 @@ class ReporteController {
                                break;
                 }
                 if($nomatri['alu_esc']=="IM"){
+                    $codim=@$nomatri['alu_cod'];
+                    $almim=@$nomatri['alu_nom_completo'];
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(30,10,@$nomatri['alu_cod'],1,0,'C');
+                    $pdf->Cell(30,10,@$codim,1,0,'C');
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$nomatri['alu_nom_completo']),1,0);   
+                    $pdf->Cell(95,10,@$almim,1,0);   
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(65,10,$anio,1,1,'C');    
                     }
@@ -656,7 +660,7 @@ class ReporteController {
         
         $pdf->Output();
         }
-        if($tipo=="E")
+        else if($tipo=="E")
         {
         $pdf->AddPage();
         
@@ -664,7 +668,6 @@ class ReporteController {
         $pdf->Cell(190,10,@utf8_decode('REPORTE DE USUARIOS Y CONTRASEÑAS DE LOS ESTUDIANTES'),0,1,'C');
         $pdf->Cell(190,5,'',0,1,'C');
         
-            //LA U ES LA U
             $pdf->SetFont('Arial','B',14);
             $pdf->Cell(95,10,@utf8_decode('Nombre Completo'),1,0);
             $pdf->SetFont('Arial','B',14);
@@ -675,9 +678,10 @@ class ReporteController {
             foreach ($usuarios as $usuario) 
             {
                     $codig = @$usuario['alu_cod'];
+                    $alumn = @$usuario['alu_nom_completo'];
                     $pass = $this->generarPassw1($codig);
                     $pdf->SetFont('Arial','',10);
-                    $pdf->Cell(95,10,@utf8_decode(@$usuario['alu_nom_completo']),1,0);
+                    $pdf->Cell(95,10,@$alumn,1,0);
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$codig,1,0,'C');
                     $pdf->SetFont('Arial','',10);
