@@ -14,12 +14,17 @@
             </label>
         </div> <div class="control-group">
             <label class="radio">
-                <input type="radio" id="report" name="report" value="C"> Alumnos NO matriculados por A&ntilde;o
+                <input type="radio" id="report" name="report" value="C"> Alumnos NO Matriculados por A&ntilde;o
             </label>
         </div>
         <div class="control-group">
             <label class="radio">
                 <input type="radio" id="report" name="report" value="D"> Alumnos NO Matriculados por Escuela
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="radio">
+                <input type="radio" id="report" name="report" value="E"> Usuarios y Contrase&ntilde;as
             </label>
         </div>
         <div class="form-actions">

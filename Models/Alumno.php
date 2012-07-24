@@ -113,6 +113,11 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012' ORDER BY CUR.CUR_SEM,CURALU.cu
         $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
         return  $qResp0;
     }
+    public function getUsuPass(){
+        $query0 = "select * from alumno al inner join usuario usu on al.alu_cod=usu.alu_cod where usu.alu_cod<>'unfv'";
+        $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
+        return  $qResp0;
+    }
 
      public function insertCursoAlu($inserta){
         return $this->DbConnect->query($inserta);
