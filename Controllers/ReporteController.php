@@ -156,10 +156,7 @@ class ReporteController {
                     }
                     }        
             $pdf->Cell(190,5,'',0,1,'C');
-        
-        
-        
-        $pdf->Output();
+            $pdf->Output();
         }
         
         else if($tipo=="B")
@@ -329,8 +326,7 @@ class ReporteController {
                     }
                     }
             $pdf->Cell(190,5,'',0,1,'C');
-        
-        $pdf->Output();
+            $pdf->Output();
         }
         
         else if($tipo=="C")
@@ -500,9 +496,8 @@ class ReporteController {
                     $pdf->Cell(65,10,$carrera,1,1);    
                     }
                     }
-            $pdf->Cell(190,5,'',0,1,'C');
-            
-             $pdf->Output();
+            $pdf->Cell(190,5,'',0,1,'C');  
+            $pdf->Output();
         }
         
         else if($tipo=="D")
@@ -655,15 +650,11 @@ class ReporteController {
                     }
                     }        
             $pdf->Cell(190,5,'',0,1,'C');
-        
-        
-        
-        $pdf->Output();
+            $pdf->Output();
         }
         else if($tipo=="E")
         {
         $pdf->AddPage();
-        
         $pdf->SetFont('Arial','B',16);
         $pdf->Cell(190,10,@utf8_decode('REPORTE DE USUARIOS Y CONTRASEÑAS DE LOS ESTUDIANTES'),0,1,'C');
         $pdf->Cell(190,5,'',0,1,'C');
@@ -689,11 +680,49 @@ class ReporteController {
            }
                     
             $pdf->Cell(190,5,'',0,1,'C');
-            
+            $pdf->Output();
+        }
+        else if($tipo=="F")
+        {
+        /*$pdf->AddPage();
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(190,10,@utf8_decode('REPORTE DE USUARIOS Y CONTRASEÑAS DE LOS ESTUDIANTES'),0,1,'C');
+        $pdf->Cell(190,5,'',0,1,'C');*/
              
-        
-        
-        $pdf->Output();
+             
+            $i=0;
+            foreach ($usuarios as $usuario) 
+            {
+                    $codig = @$usuario['alu_cod'];
+                    $alumn = @$usuario['alu_nom_completo'];
+                    $pass = $this->generarPassw1($codig);
+                    if($i%4==0)
+                    {
+                        $pdf->AddPage();
+                    }
+                        $pdf->SetFont('Arial','B',14);
+                        $pdf->Cell(200,10,'Estimado(a): '.@$alumn,0,1);
+                        
+                        $pdf->SetFont('Arial','',10);
+                        
+                        $pdf->Cell(95,2,@utf8_decode('Mediante la presente carta se le envía, su contraseña de ingreso al sistema de matricula de la Facultad de'),0,1);
+                        $pdf->Cell(95,6,@utf8_decode('de Ingeniería Electrónica e Informática (FIEI).'),0,1);
+                        $pdf->Cell(95,6,'',0,1);
+                        
+                        $pdf->Cell(70,10,'',0,0);
+                        $pdf->SetFont('Arial','B',14);
+                        $pdf->Cell(30,10,@$pass,1,0,'C');
+                        $pdf->Cell(95,10,'',0,1);
+                        $pdf->SetFont('Arial','',10);
+                        $pdf->Cell(65,8,'',0,1,'C');
+                        $pdf->Cell(95,2,@utf8_decode(' (*) Siendo el usuario de ingreso su codigo del estudiante.'),0,1);
+                        $pdf->Cell(95,6,@utf8_decode('(**) Solicitamos que realice el cambio de su contraseña la primera vez que ingrese por medidas de seguridad.'),0,1);
+                        $pdf->Cell(65,8,'',0,1,'C');
+                        $pdf->Ln($i+10);
+                    ++$i;
+           }                
+            $pdf->Cell(190,5,'',0,1,'C');
+            $pdf->Output();
         }
         else
             echo "Aun no definido";

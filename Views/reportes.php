@@ -24,7 +24,12 @@
         </div>
         <div class="control-group">
             <label class="radio">
-                <input type="radio" id="report" name="report" value="E"> Usuarios y Contrase&ntilde;as
+                <input type="radio" id="report" name="report" value="E"> Reportes de Usuarios y Contrase&ntilde;as
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="radio">
+                <input type="radio" id="report" name="report" value="F"> Carta de Usuarios y Contrase&ntilde;as
             </label>
         </div>
         <div class="form-actions">
