@@ -32,6 +32,7 @@ class Usuario {
                         $rol = $array[3];
                         $alucod = $array[4];
                         $nombre = $array[8];
+                        $escuela = $array[6];
 			$i++;
 		}
                 if($i > 0)
@@ -44,6 +45,7 @@ class Usuario {
 			$_SESSION["estado"] = $estado;
                         $_SESSION["rol"] = $rol;
                         $_SESSION["active"] = true;
+                        $_SESSION["escuela"] = $escuela;
                         $_SESSION["nombre"] = utf8_encode($nombre);
                         if($rol=="alum")
                         {

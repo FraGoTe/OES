@@ -1,13 +1,12 @@
 <?php
-
-include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso_Alumno.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Alumno.php"; 
 /**
  * Description of SeleccionaCurso
  *
  * @author FraGoTe
  */
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso_Alumno.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Curso.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Alumno.php"; 
 class SeleccionaCursos {
     
     public $datamatri;
@@ -42,7 +41,109 @@ class SeleccionaCursos {
                 }   
             }
         }else{
+            $cursoxtomar = $objCurso->getCursosxTomar($alu_cod);
             
+            $cursos = array();
+            
+            foreach($cursoxtomar as $cursononsecure)
+            {
+                $cursosxreview = $objCurso->getcursosrequ($cursononsecure['cur_cod']);
+                
+                $variab = true;
+                foreach($cursosxreview as $curreview)
+                {
+                  $variab = $objCurso->cursospasados($curreview['req_cod'], $alu_cod);
+                }
+
+                if($variab)
+                 $cursos[] = $cursononsecure['cur_cod'];
+            }
+            //Cursos Primer Semestre
+            $takenCourses = $cursos;
+            
+            // Concatenando Cursos del Primer Semestre
+            $i = 1;
+            $ConcatCur = "";
+            foreach($cursos as $curso)
+            {
+                $coma = ($i == 1)?"":","; 
+                $ConcatCur .= $coma."'".$curso."'";
+                $i++;
+            }
+            
+            //Agregando los cursos del primer Semestre
+            $cursosTomar = $objCurso->getCursosTomar($ConcatCur);
+            
+            foreach($cursosTomar as $cursononsecure)
+            {
+                $cursosxreview = $objCurso->getcursosrequ($cursononsecure['cur_cod']);
+                
+                $variab = true;
+                foreach($cursosxreview as $curreview)
+                {  
+                    if(in_array(trim($curreview['req_cod']), $takenCourses))
+                            $variab = true;
+                   else
+                    $variab = $objCurso->cursospasados($curreview['req_cod'], $alu_cod);
+                 
+                }
+
+                if($variab)
+                 $cursos[] = $cursononsecure['cur_cod'];
+            }
+            
+            // Concatenando Cursos Totales
+            $i = 1;
+            $ConcatCur = "";
+            
+            foreach($cursos as $curso)
+            {
+                $coma = ($i == 1)?"":","; 
+                $ConcatCur .= $coma."'".$curso."'";
+                $i++;
+            }
+            
+             $AllCursos = $objCurso->getCursosTodos($alu_cod, $ConcatCur);
+             
+             $CursoCiclo = $objCurso->getCursosCiclo($alu_cod, $ConcatCur);
+             
+             $j = 1;
+             $ciclos = array();
+             foreach($CursoCiclo as $Cciclo)
+             {
+                 if($Cciclo['CUR_CICLO'] != '*')
+                 {
+                     if($j<3)
+                     $ciclos[] = $Cciclo['CUR_CICLO'];
+                     $j++;
+                 }
+             }
+             
+             $cur = "";
+             $totalCred = 0;
+           //  var_Dump($AllCursos);exit;
+              foreach($AllCursos as $curso){
+                if(@$curso){
+                 $check = (in_array($curso['cur_ciclo'], $ciclos)?" disabled='disabled' checked='checked'":"");
+                 $curnom = utf8_encode($curso['cur_nom']);
+                 $turno = 'M';
+                 $seccion = 'A';
+                 $checkval = "||data||cua_per=2013-{$curso['cur_sem']}*cur_cod={$curso['cur_cod']}*esc_cod={$curso['esc_cod']}*cua_turn=$turno*cua_sec=$seccion"; 
+                $cur .= "<tr>
+                    <td>2013-{$curso['cur_sem']}</td>
+                    <td>{$curso['cur_cod']}</td>
+                    <td>$turno</td>
+                    <td>$seccion</td>
+                    <td>{$curnom}</td>
+                    <td>{$curso['cur_cred']}</td>
+                    <td></td>
+                    <td><input type='checkbox' $check value='$checkval' /></td>
+                    </tr>";
+                    if(strlen($check)>0)
+                    $totalCred +=$curso['cur_cred'];
+                }   
+            }
+             
         }
         $cur.="<tr>
                 <tr>

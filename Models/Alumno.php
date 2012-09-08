@@ -94,7 +94,7 @@ WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012' ORDER BY CUR.CUR_SEM,CURALU.cu
         return  $qResp;
     }
     public function getestado($ALU_COD){
-        $SQL2 = mysql_query("SELECT mat_estado FROM  matricula WHERE alu_cod='$ALU_COD'");
+        $SQL2 = mysql_query("SELECT mat_estado FROM  matricula WHERE alu_cod='$ALU_COD' and ano='2012'");
         $qResp2 = mysql_fetch_array($SQL2);
         if($qResp2[0]=="")
             return "No matriculado";

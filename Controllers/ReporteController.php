@@ -41,7 +41,7 @@ class ReporteController {
                                break;
                     case "5": $anio=@utf8_decode('Quinto Año');
                                break;
-                }
+                }$anio = '2013';
                 if($alumno['alu_esc']=="IF"){
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
@@ -75,7 +75,7 @@ class ReporteController {
                                break;
                     case "5": $anio=@utf8_decode('Quinto Año');
                                break;
-                }
+                }$anio = '2013';
                 if($alumno['alu_esc']=="IL"){
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');
@@ -145,7 +145,7 @@ class ReporteController {
                                break;
                     case "5": $anio=@utf8_decode('Quinto Año');
                                break;
-                }
+                }$anio = '2013';
                 if($alumno['alu_esc']=="IM"){
                     $pdf->SetFont('Arial','',10);
                     $pdf->Cell(30,10,@$alumno['alu_cod'],1,0,'C');

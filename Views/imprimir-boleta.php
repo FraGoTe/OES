@@ -74,6 +74,9 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/Implementation/Selecciona-Cursos/Obten
                             case 'IF':
                                 echo 'Ingenier&iacute;a Inform&aacute;tica';
                                 break;
+                            case 'IL':
+                               echo 'Ingenier&iacute;a Electronica';
+                                break;
                             case 'IE':
                                 echo 'Ingenier&iacute;a Electronica';
                                 break;
