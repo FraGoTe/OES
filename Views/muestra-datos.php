@@ -57,7 +57,7 @@ include '../Implementation/Muestra-Datos/ObtenerData.php';
         <div class="control-group">
             <label class="control-label" for="input01">Alumno :</label>
             <div class="controls">
-                <input type="text" disabled="disabled" value="<?php echo $aludata['alu_nom_completo']; ?>" class="input-xlarge" name="alu_nom_completo" id="alu_nom_completo" />
+                <input type="text" disabled="disabled" value="<?php echo utf8_encode($aludata['alu_nom_completo']); ?>" class="input-xlarge" name="alu_nom_completo" id="alu_nom_completo" />
             </div>
         </div>
         <div class="control-group">

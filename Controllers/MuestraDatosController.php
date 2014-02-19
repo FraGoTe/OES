@@ -5,9 +5,10 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}./Models/Usuario.php";
 
 class MuestraDatos {
 
-    public function UploadImage($_POST,$_FILES,$_SERVER) {
+    public function UploadImage($_POST,$_FILES,$_SERVER, $_GET = array()) {
         session_start();
-        $path = "../../Public/images/Fotos/";
+        $direc = (@$_GET['id']=='bou'?'Boucher':'Fotos');
+        $path = "../../Public/images/$direc/";
         $valid_formats = array("jpg","JPG");
         if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
             $name = $_FILES['photoimg']['name'];
@@ -19,7 +20,8 @@ class MuestraDatos {
                         $actual_image_name = $_SESSION['alu_cod']. "." . $ext;
                         $tmp = $_FILES['photoimg']['tmp_name'];
                         if (move_uploaded_file($tmp, $path . $actual_image_name)) {
-                            echo "<img width='130' height='150' src='../../Public/images/Fotos/" . $actual_image_name . "' class='preview'>";
+                            $direc = (@$_POST['id']=='bou'?'Boucher':'Fotos');
+                            echo "<img width='130' height='150' src='../../Public/images/$direc/" . $actual_image_name . "' class='preview'>";
                         }
                         else
                             echo "Fallido";

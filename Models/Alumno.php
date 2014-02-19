@@ -43,11 +43,46 @@ class Alumno {
         return  $qResp1;
     }
     
+    public function getAllAluFiltro($arra,$escuela){//$alu_esc
+            $SQL1 = "SELECT AL.ALU_COD, MAT.MAT_ESTADO,AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL 
+                       LEFT JOIN MATRICULA MAT 
+                       ON MAT.MAT_ANIO='2012' AND MAT.ALU_COD=AL.ALU_COD 
+                       WHERE  AL.ALU_ESC='{$escuela}' AND MAT.MAT_ESTADO <> 'NULL'
+                        ";
+                       foreach($arra as $key=>$val)
+                       {
+                           $SQL1.= "AND $key like '%$val%'";
+                       }
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
+    public function getAllAluFiltro2($arra = array(),$sidx,$sord){//$alu_esc
+            $SQL1 = "SELECT AL.ALU_COD, AL.ALU_NOM_COMPLETO
+                        FROM ALUMNO AL
+                        ";
+            $i=0;if(!empty($arra)){
+                $SQL1 .= "WHERE ";
+                       foreach($arra as $key=>$val)
+                       {
+                           if($i==0)
+                               $SQL1 .= " $key like '%$val%'";
+                           else
+                           $SQL1.= "AND $key like '%$val%'";
+                       }
+                       }
+             $SQL1 .= "ORDER BY $sidx $sord";
+                                   
+        $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
+        return  $qResp1;
+    }
+    
     public function getAllCursos($alucod){
-            $SQL1 = "SELECT CUR.cur_ciclo, CUR.cur_cod, CUR.cur_sem, CUR.cur_tipo , CUR.cur_nom, CUR.cur_cred, CUR.esc_cod FROM CURSO CUR
-                INNER JOIN ALUMNO AL ON AL.ALU_ESC = CUR.ESC_COD
-                WHERE AL.ALU_COD='$alucod' AND CUR.CUR_CICLO IN ('I','II')
-                ORDER BY CUR.CUR_CICLO, CUR_NOM";
+            $SQL1 = "SELECT * FROM CURSO CUR INNER JOIN CURSO_ALUMNO CURALU ON CUR.CUR_COD=CURALU.CUR_COD
+INNER JOIN ALUMNO AL ON AL.ALU_COD = CURALU.ALU_COD AND AL.ALU_ESC = CUR.ESC_COD         
+INNER JOIN MATRICULA MA ON MA.ALU_COD = CURALU.ALU_COD
+WHERE AL.ALU_COD='$alucod' AND MA.MAT_ANIO='2012' ORDER BY CUR.CUR_SEM,CURALU.cua_per";
         $qResp1 = $this->DbConnect->fetchAlltoArray($SQL1);
         return  $qResp1;
     }
@@ -59,12 +94,33 @@ class Alumno {
         return  $qResp;
     }
     public function getestado($ALU_COD){
-        $SQL2 = mysql_query("SELECT mat_estado FROM  matricula WHERE alu_cod='$ALU_COD'");
+        $SQL2 = mysql_query("SELECT mat_estado FROM  matricula WHERE alu_cod='$ALU_COD' and ano='2012'");
         $qResp2 = mysql_fetch_array($SQL2);
         if($qResp2[0]=="")
             return "No matriculado";
         else
             return  $qResp2[0];
+    }
+    public function getAlumnosMatri(){
+        $query = "select * from alumno al inner join matricula ma on
+                    ma.alu_cod = al.alu_cod and ma.mat_anio='2012'";
+        $qResp = $this->DbConnect->fetchAlltoArray($query);
+        return  $qResp;
+        
+    }
+    public function getAlumnosNoMatri(){
+        $query0 = "select * from alumno where alu_cod not in (select alu_cod from matricula)";
+        $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
+        return  $qResp0;
+    }
+    public function getUsuPass(){
+        $query0 = "select * from alumno al inner join usuario usu on al.alu_cod=usu.alu_cod where usu.alu_cod<>'unfv' ORDER BY al.alu_nom_completo";
+        $qResp0 = $this->DbConnect->fetchAlltoArray($query0);
+        return  $qResp0;
+    }
+
+     public function insertCursoAlu($inserta){
+        return $this->DbConnect->query($inserta);
     }
 }
 

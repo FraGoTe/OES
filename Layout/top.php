@@ -49,6 +49,7 @@
                 header('location: ../index.php');
                 ?>
                 <div id="horiznav" class="horiznav">
+                    <ul style="float: left; width: 500px; margin-bottom: 4px;"><b>C&oacute;digo: <?php echo $_SESSION['usucod']; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Usuario:  <?php echo $_SESSION['nombre']; ?> </b></ul>
                     <ul class="nav nav-pills" style="float:right;">
                          <li class="dropdown">
                              <a href="../Implementation/Login/CloseSession.php">Cerrar Sesi&oacute;n </a>

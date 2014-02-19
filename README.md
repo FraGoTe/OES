@@ -1,4 +1,3 @@
 OES
 ===
-
-This an Online Enrollment System
+This is an Online Enrollment System

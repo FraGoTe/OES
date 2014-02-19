@@ -3,14 +3,42 @@
         var idold = $(".active").attr('id');
         $("#"+idold).removeAttr('class');
         $("#"+id).attr('class','active');
-    $.ajax({
-        url: url,
-        dataType: 'html',
-        type: "POST",        
-        success: function(datos){
-               $("#conten").html(datos);
-        }
-    });  
+   
+    if(url=="operacion-banco.php")
+        {
+       var nurl;
+       
+        $.ajax({
+            async: false,
+            url: "../Implementation/Valida-Matricula/Valida.php",
+            dataType: 'html',   
+            success: function(datos){
+                if(datos=='S')
+                   nurl='imprimir-boleta.php';
+                else
+                   nurl='operacion-banco.php';
+                  $.ajax({
+                            async: false,
+                            url: nurl,
+                            dataType: 'html',
+                            type: "POST",        
+                            success: function(datos){
+                                   $("#conten").html(datos);
+                            }
+                        });
+            }
+        });
+    }else{
+                $.ajax({
+                    async: false,
+                    url: url,
+                    dataType: 'html',
+                    type: "POST",        
+                    success: function(datos){
+                           $("#conten").html(datos);
+                    }
+                });
+    }
 }
 </script>
 <div class="well" style="width: 250px; padding: 8px 0; float:left;">
@@ -22,14 +50,55 @@
                 Inicio
             </a>
         </li>
+        <?php
+        if($_SESSION["rol"] == "alum") 
+        {
+        ?>
         <li id="misda" >
 
-       <a onclick="change('muestra-datos.php','misda')">
+        <a onclick="change('muestra-datos.php','misda')">
                 <i class="icon-white icon-user"></i>
                 Mis datos
         </a>
         </li>
-        <li class="nav-header">Matricula 2013</li>
+        <?php
+            if($_SESSION["passencript"] == $_SESSION["usupass"]) 
+            {
+        ?>
+            <li id="cambiapass" >
+                <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
+                    <i class="icon-white icon-cog"></i>
+                    Cambiar contrase&ntilde;a
+                </a>
+            </li>
+        <?php 
+            } 
+        }
+        else
+        {
+            ?>
+        <li id="misda" >
+
+       <a onclick="change('muestra-datos-admin.php','misda')">
+                <i class="icon-white icon-user"></i>
+                Mis datos
+        </a>
+        </li>
+        <li id="cambiapass" >
+                <a  onclick="change('cambiar-contrasena.php','cambiapass')" >
+                    <i class="icon-white icon-cog"></i>
+                    Cambiar contrase&ntilde;a
+                </a>
+         </li>
+               
+        <?php
+        }  
+        ?>
+
+        
+        
+        
+        <li class="nav-header">Matricula 2012</li>
         <?php
         if($_SESSION["rol"] == "alum") {
         ?>
@@ -40,8 +109,7 @@
             </a>
         </li>
         <?php
-        }
-        else{
+        }else{
             ?>
             <li id="matri" >
             <a  onclick="change('admin-estado-matricula.php','matri')" >
@@ -49,11 +117,29 @@
                 Matricula Online
             </a>
             </li>
+            <li id="report" >
+            <a  onclick="change('reportes.php','report')" >
+                <i class="icon-white icon-cog"></i>
+                Reportes
+            </a>
+            </li>
+            <li id="report2" >
+            <a  onclick="change('admin-mantenimiento-usuarios.php','report2')" >
+                <i class="icon-white icon-cog"></i>
+                Mantenimiento de usuarios
+            </a>
+            </li>
         <?php
         }
         ?>
         
         <li class="nav-header">Descargas</li>
+        <li id="manual">
+             <a onclick="change('manual-estudiante.php','manual')">
+                <i class="icon-white icon-book"></i>
+                Manual del Estudiante
+            </a>
+        </li>
          <li id="reg">
              <a onclick="change('reg.php','reg')">
                 <i class="icon-white icon-book"></i>

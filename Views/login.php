@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="form-actions"  style="width: 300px;">
-                                <button onclick="validaLogin();" class="btn btn-primary" type="submit">Enviar</button>
+                                <button onclick="validaLogin();" class="btn btn-primary" type="submit">Ingresar</button>
                                 <button class="btn" type="reset">Cancelar</button>
                             </div>
                         </div>
