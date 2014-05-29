@@ -77,19 +77,15 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Alumno.php";
         $pdf->Cell(200,0,'',1,1,'C');
         
         foreach ($alumnos as $alumno) {
-            /*if($alumno['alu_esc']=='IF')
-                $carrer = 'Ingeniada qopwemqw';
-            else
-               $carrer = "maymay";*/
-        $pdf->SetFont('Arial','B',7);
-        $pdf->Cell(15,4,@$alumno['cua_per'],0,0,'C');
-        $pdf->Cell(15,4,@$alumno['cur_cod'],0,0,'C');  
-        $pdf->Cell(10,4,@$alumno['cua_turn'],0,0,'C');
-        $pdf->Cell(10,4,@$alumno['cua_sec'],0,0,'C');
-        $pdf->Cell(130,4,@$alumno['cur_nom'],0,0);
-        $pdf->Cell(10,4,@$alumno['cur_cred'],0,0,'C');
-        $pdf->Cell(10,4,@$alumno['cua_vez'],0,1,'C');
-        $creditos+=$alumno['cur_cred'];
+                $pdf->SetFont('Arial','B',7);
+                $pdf->Cell(15,4,@$alumno['cua_per'],0,0,'C');
+                $pdf->Cell(15,4,@$alumno['cur_cod'],0,0,'C');  
+                $pdf->Cell(10,4,@$alumno['cua_turn'],0,0,'C');
+                $pdf->Cell(10,4,@$alumno['cua_sec'],0,0,'C');
+                $pdf->Cell(130,4,@$alumno['cur_nom'],0,0);
+                $pdf->Cell(10,4,@$alumno['cur_cred'],0,0,'C');
+                $pdf->Cell(10,4,@$alumno['cua_vez'],0,1,'C');
+                $creditos+=$alumno['cur_cred'];
         }
         
         $pdf->Cell(200,0,'',1,1,'C');
