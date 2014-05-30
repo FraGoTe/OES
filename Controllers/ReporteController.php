@@ -2,17 +2,18 @@
 include_once "{$_SERVER['DOCUMENT_ROOT']}/Library/fpdf17/fpdf.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/Models/Alumno.php";
 
-class ReporteController {
+class ReporteController 
+{
 
-    public function reportedematricula($tipo){
+    public function reportedematricula($tipo)
+    {
         $objAlumno = new Alumno();
         $pdf = new FPDF();
         $alumnos = $objAlumno->getAlumnosMatri();
         $alumnosnomatri = $objAlumno->getAlumnosNoMatri();
         $usuarios = $objAlumno->getUsuPass();
         
-        if($tipo=="A")
-        {
+        if ($tipo == "A") {
         $pdf->AddPage();
         
         $pdf->SetFont('Arial','B',16);
@@ -157,10 +158,7 @@ class ReporteController {
                     }        
             $pdf->Cell(190,5,'',0,1,'C');
             $pdf->Output();
-        }
-        
-        else if($tipo=="B")
-        {
+        } else if ($tipo == "B") {
         $pdf->AddPage();
         
         $pdf->SetFont('Arial','B',16);
@@ -327,10 +325,7 @@ class ReporteController {
                     }
             $pdf->Cell(190,5,'',0,1,'C');
             $pdf->Output();
-        }
-        
-        else if($tipo=="C")
-        {
+        } else if($tipo == "C") {
             $pdf->AddPage();
         
             $pdf->SetFont('Arial','B',16);
@@ -498,10 +493,7 @@ class ReporteController {
                     }
             $pdf->Cell(190,5,'',0,1,'C');  
             $pdf->Output();
-        }
-        
-        else if($tipo=="D")
-        {
+        } else if ($tipo == "D") {
         $pdf->AddPage();
         
         $pdf->SetFont('Arial','B',16);
@@ -651,9 +643,7 @@ class ReporteController {
                     }        
             $pdf->Cell(190,5,'',0,1,'C');
             $pdf->Output();
-        }
-        else if($tipo=="E")
-        {
+        } else if($tipo == "E") {
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',16);
         $pdf->Cell(190,10,@utf8_decode('REPORTE DE USUARIOS Y CONTRASEÑAS DE LOS ESTUDIANTES'),0,1,'C');
@@ -681,9 +671,7 @@ class ReporteController {
                     
             $pdf->Cell(190,5,'',0,1,'C');
             $pdf->Output();
-        }
-        else if($tipo=="F")
-        {
+        } else if($tipo == "F") {
         /*$pdf->AddPage();
         $pdf->SetFont('Arial','B',16);
         $pdf->Cell(190,10,@utf8_decode('REPORTE DE USUARIOS Y CONTRASEÑAS DE LOS ESTUDIANTES'),0,1,'C');
@@ -729,7 +717,7 @@ class ReporteController {
      }
      
      public function generarPassw1($cod)
-      {
+     {
           $x=$cod;
           $tamanio=strlen($x);
           $codigo=array();
@@ -777,7 +765,5 @@ class ReporteController {
             
             
 }
-
-
 
 ?>
