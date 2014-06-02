@@ -1,6 +1,9 @@
 <?php
 include '../Implementation/Muestra-Datos/ObtenerData.php';
-@$aludata = $aludata[0];
+
+if (!empty($aludata[0])) {
+    $aludata = $aludata[0];
+}
 ?>
 <p align="center">OFICINA DE SERVICIOS ACAD&Eacute;MICOS</p>
 <p align="center">Administrador: <input class="input-xlarge disabled" value="<?php echo $aludata['alu_nom_completo']; ?>" id="disabledInput" type="text" placeholder="" disabled=""/></p>
