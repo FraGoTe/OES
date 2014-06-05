@@ -60,14 +60,6 @@ jQuery("#list10").jqGrid('navButtonAdd',"#pager",{caption:"Clear",title:"Clear S
         }
 });
 jQuery("#list10").jqGrid('filterToolbar');             
-/*$("#list10").jqGrid('filterToolbar', {
-    stringResult : true,
-    searchOnEnter : false
-});*/
-//jQuery("#list10").jqGrid('navGrid','#pager10',{add:false,edit:false,del:false,search:true, searchtext:"Buscar"}); 
-
-
-
 jQuery("#resetpass").click( function() 
 { 
     alert("\t \t Confirmación \n La clave se reseteo exitosamente"); 
