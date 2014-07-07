@@ -57,4 +57,3 @@ class AdminEstadoMatriculaController {
         return $data1;
     }
 }
-?>
